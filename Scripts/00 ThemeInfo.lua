@@ -1,6 +1,6 @@
 -- theme identification:
 themeInfo = {
-	ProductCode = "SSC-501",
-	Name = "StepMania 5 Default",
+	ProductCode = "DDRX-1234-5678",
+	Name = "Dance Revolution X",
 	Date = "20120108",
 }
