@@ -1,10 +1,10 @@
 return Def.ActorFrame {
 	LoadActor( "../footer_shadow" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+240;vertalign,bottom;addy,23;sleep,0.436;accelerate,0.133;addy,-22);
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+240;vertalign,bottom;zoomx, 1.34;addy,23;sleep,0.436;accelerate,0.133;addy,-22);
 	};
 
 	LoadActor( "../footer_shadow" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-240;vertalign,top;addy,-23;sleep,0.436;accelerate,0.133;addy,22);
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-240;vertalign,top;zoomx, 1.34;addy,-23;sleep,0.436;accelerate,0.133;addy,22);
 	};
 
 	LoadActor( "dem" )..{
