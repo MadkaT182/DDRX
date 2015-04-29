@@ -5,12 +5,12 @@ t[#t+1] = Def.ActorFrame {
 	};
 
 	LoadActor( "gauge 4x3" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+300;y,SCREEN_TOP+107;diffusealpha,0;sleep,0.233;diffusealpha,1);
+		OnCommand=cmd(x,SCREEN_LEFT+321;y,SCREEN_TOP+97;diffusealpha,0;sleep,0.233;diffusealpha,1);
 		OffCommand=cmd(diffusealpha,0);
 	};
 
 	LoadActor( "gaugeOut" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+290;y,SCREEN_TOP+115;diffusealpha,0);
+		OnCommand=cmd(x,SCREEN_LEFT+321;y,SCREEN_TOP+97;diffusealpha,0);
 		OffCommand=cmd(sleep,0.233;diffusealpha,1;linear,0.05;diffusealpha,0);
 
 	};
