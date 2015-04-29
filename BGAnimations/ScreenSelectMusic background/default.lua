@@ -2,11 +2,6 @@ return Def.ActorFrame {
 	LoadActor( "../_shared background" )..{
 	};
 
-	LoadActor( "../../Graphics/_footer/footer_shadow" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+229;zoomx, 1.34;addy,24;linear,0.133;addy,-24);
-		OffCommand=cmd(linear,0.133;addy,24);
-	};
-
 	LoadActor( "playerFrame_bg" )..{
 		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+93;addx,-294;rotationz,-90;sleep,0.2;linear,0.166;rotationz,0;addx,230;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
 		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-316);
@@ -15,16 +10,6 @@ return Def.ActorFrame {
 	LoadActor( "difficulty_bg" )..{
 		OnCommand=cmd(x,SCREEN_LEFT-116;y,SCREEN_CENTER_Y+135;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
 		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-350);
-	};
-
-	LoadActor( "radar.png" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+6;zoomy,0;sleep,0.466;accelerate,0.05;zoomy,1.30;linear,0.033;zoomy,1;accelerate,0.05;zoomx,1.30;linear,0.033;zoomx,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-
-	LoadActor( "radar_glow" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+3;diffuseshift;effectcolor1,color("1,1,1,1");effectcolor2,color("1,1,1,0.4");effectperiod,1.33;addx,-999;sleep,1.283;addx,999);
-		OffCommand=cmd(sleep,0.233;stopeffect;linear,0.05;diffusealpha,0);
 	};
 
 	LoadActor( "stream" )..{
@@ -50,6 +35,16 @@ return Def.ActorFrame {
 	LoadActor( "chaos" )..{
 		OnCommand=cmd(x,SCREEN_LEFT+235;y,SCREEN_CENTER_Y-6;rotationz,360;sleep,0.632;sleep,0.3;linear,0.166;rotationz,0;diffusealpha,1);
 		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+	};
+
+	LoadActor( "radar.png" )..{
+		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+6;zoomy,0;sleep,0.466;accelerate,0.05;zoomy,1.30;linear,0.033;zoomy,1;accelerate,0.05;zoomx,1.30;linear,0.033;zoomx,1);
+		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+	};
+
+	LoadActor( "radar_glow" )..{
+		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+3;diffuseshift;effectcolor1,color("1,1,1,1");effectcolor2,color("1,1,1,0.4");effectperiod,1.33;addx,-999;sleep,1.283;addx,999);
+		OffCommand=cmd(sleep,0.233;stopeffect;linear,0.05;diffusealpha,0);
 	};
 
 	LoadActor( "w01" )..{
@@ -130,8 +125,13 @@ return Def.ActorFrame {
 	LoadActor( "../../Graphics/ScreenSelectMusic banner frame" )..{
 	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+100;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
 	OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-337);
-
 	};
+
+	-- LoadActor "../_modifiers/speed/x3"..{
+	-- OnCommand=cmd(x,SCREEN_LEFT+26;y,SCREEN_TOP+443;cropleft,0.5;addy,46;sleep,0.683;linear,0.2;addy,-46);
+	-- -- Condition=UsingModifier(1, "3x") and IsPlayerEnabled(1);
+	-- -- addx,-270;
+	-- };
 
 --[[
 	LoadActor( "_modifiers" )..{
