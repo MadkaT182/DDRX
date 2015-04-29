@@ -15,12 +15,6 @@ t[#t+1] = Def.ActorFrame {
 
 	};
 
-	-- LoadActor( "lightning" )..{
-	-- 	OnCommand=cmd(x,SCREEN_LEFT+322;y,SCREEN_CENTER_Y-133;horizalign,right;vertalign,bottom;zoom,0;sleep,0.233;rotationz,50;linear,0.133;zoom,1);
-	-- 	OffCommand=cmd(zoomy,1.036;linear,0.133;zoom,0.136;linear,0.066;zoom,0.88;linear,0.033;zoom,0;sleep,0.266;accelerate,0.133;addx,-316);
-
-	-- };
-
 	-- LoadActor( "WheelHighlight" )..{
 	-- 	OnCommand=cmd(x,SCREEN_CENTER_X-156;y,SCREEN_CENTER_Y-16;addx,800;sleep,0.6;decelerate,0.34;addx,-380);
 	-- 	OffCommand=cmd(sleep,0.016;accelerate,0.25;addx,380);
