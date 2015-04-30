@@ -1,92 +1,304 @@
+
 local playMode = GAMESTATE:GetPlayMode()
-
-local sStage = ""
-sStage = GAMESTATE:GetCurrentStage()
-
 if playMode ~= 'PlayMode_Regular' and playMode ~= 'PlayMode_Rave' and playMode ~= 'PlayMode_Battle' then
-  sStage = playMode;
+curStage = playMode;
+end;
+local sStage = GAMESTATE:GetCurrentStage();
+local tRemap = {
+Stage_1st = 1,
+Stage_2nd = 2,
+Stage_3rd = 3,
+Stage_4th = 4,
+Stage_5th = 5,
+Stage_6th = 6,
+};
+
+local stageGraphicToLoad = GAMESTATE:GetCurrentStageIndex() + 1
+
+if tRemap[sStage] == PREFSMAN:GetPreference("SongsPerPlay") then
+sStage = "Stage_Final";
+else
+sStage = sStage;
 end;
 
+
 local t = Def.ActorFrame {};
-t[#t+1] = Def.Quad {
-	InitCommand=cmd(Center;zoomto,SCREEN_WIDTH,SCREEN_HEIGHT;diffuse,Color("Black"));
+
+t[#t+1] =Def.ActorFrame{
+
+LoadActor("../door1.png")..{
+InitCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X-214;y,SCREEN_CENTER_Y;);
+OnCommand=cmd(linear,0.25;x,SCREEN_CENTER_X/2+2);
 };
-if GAMESTATE:IsCourseMode() then
-	t[#t+1] = LoadActor("CourseDisplay");
-else
-	t[#t+1] = Def.Sprite {
-		InitCommand=cmd(Center;diffusealpha,0);
-		BeginCommand=cmd(LoadFromCurrentSongBackground);
-		OnCommand=function(self)
-			self:scale_or_crop_background()
-			self:sleep(0.5)
-			self:linear(0.50)
-			self:diffusealpha(1)
-			self:sleep(3)
-		end;
+
+};
+t[#t+1] =Def.ActorFrame{
+
+LoadActor("../door2.png")..{
+InitCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;);
+OnCommand=cmd(linear,0.25;x,SCREEN_CENTER_X*3/2-2);
+};
+
+};
+
+t[#t+1] =Def.ActorFrame{
+LoadActor( "../header_shadow.png" )..{
+InitCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-211;addy,-56;sleep,2.116;linear,0.5;addy,56;sleep,5;linear,0.133;addy,-56);
+
+};
+
+LoadActor( "../footer" )..{
+InitCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+230;addy,23;sleep,2.116;linear,0.5;addy,-23;sleep,5;linear,0.133;addy,24);
+
+};
+
+LoadActor( "../banner frame" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-129;zoomy,0;sleep,0.000;sleep,1.8;decelerate,0.15;zoomy,1;accelerate,0.033;zoomx,1.06;decelerate,0.033;zoomx,1;sleep,6.2;decelerate,0.066;zoomx,1.05;zoomy,0);
 	};
+
+LoadActor( "../headerFrame" )..{
+		InitCommand=cmd(vertalign,top;horizalign,right;x,SCREEN_CENTER_X+147;y,SCREEN_CENTER_Y-232;zoom,0;sleep,2.116;linear,0.133;zoom,1.05;linear,0.166;zoom,1;sleep,5.23;linear,0.133;addy,-62);
+	};
+
+-- LoadActor( "../Common ScreenStages/selected_song" )..{
+-- 		OnCommand=cmd(x,SCREEN_CENTER_X-92;y,SCREEN_CENTER_Y-205;horizalign,left;addy,-8;zoom,0;sleep,2.4;linear,0.05;addy,8;zoom,1.042;linear,0.05;zoom,1;sleep,5.1;linear,0.130;addy,-45);
+-- 		Condition=not GAMESTATE:IsCourseMode();
+-- 	};
+
+-- LoadActor( "../Common ScreenStages/selected_course" )..{
+-- 		OnCommand=cmd(x,SCREEN_CENTER_X-92;y,SCREEN_CENTER_Y-205;horizalign,left;addy,-8;zoom,1.084;sleep,0.000;sleep,2.4;linear,0.05;addy,8;zoom,1.042;linear,0.05;zoom,1;sleep,5.1;linear,0.130;addy,-45);
+-- 		Condition=GAMESTATE:IsCourseMode();
+-- 	};
+
+LoadActor( "../../Graphics/ScreenSelectMusic header/mode_std" )..{
+	InitCommand=cmd(x,SCREEN_CENTER_X-96;y,SCREEN_CENTER_Y-210;horizalign,left;addy,-8;zoom,0;sleep,2.3;zoom,1.084;linear,0.05;zoom,1;sleep,5.1;linear,0.2;zoomy,0);
+	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Regular';
+};
+
+LoadActor( "../../Graphics/ScreenSelectMusic header/mode_battle" )..{
+	InitCommand=cmd(x,SCREEN_CENTER_X-96;y,SCREEN_CENTER_Y-210;horizalign,left;addy,-8;zoom,0;sleep,2.3;zoom,1.084;linear,0.05;zoom,1;sleep,5.1;linear,0.2;zoomy,0);
+	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Rave';
+};
+
+};
+
+-- if GAMESTATE:IsCourseMode() then
+-- 	t[#t+1] = LoadActor("CourseDisplay");
+-- else
+-- 	t[#t+1] = Def.Quad {
+-- 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106;zoomto,254,78;diffuse,Color("Black"));
+-- 		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78);
+-- 	};
+
+-- 	t[#t+1] = Def.Sprite {
+-- 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106);
+-- 		BeginCommand=cmd(LoadFromCurrentSongBanner);
+-- 		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78;linear,0.2;diffusealpha,1);
+-- 		OffCommand=cmd(linear,0.2;zoomy,0);
+-- 	};
+-- end;
+
+local songtitl = GAMESTATE:GetCurrentSong():GetTranslitMainTitle()
+
+local discimg = "xx"
+
+if songtitl == "Pluto" then
+discimg = "01"
 end
 
-local stage_num_actor= THEME:GetPathG("ScreenStageInformation", "Stage " .. ToEnumShortString(sStage), true)
-if stage_num_actor ~= "" and FILEMAN:DoesFileExist(stage_num_actor) then
-	stage_num_actor= LoadActor(stage_num_actor)
-else
-	-- Midiman:  We need a "Stage Next" actor or something for stages after
-	-- the 6th. -Kyz
-	local curStage = GAMESTATE:GetCurrentStage();
-	stage_num_actor= Def.BitmapText{
-		Font= "Common Normal",  Text= thified_curstage_index(false) .. " Stage",
-		InitCommand= function(self)
-			self:zoom(1.5)
-			self:strokecolor(Color.Black)
-			self:diffuse(StageToColor(curStage));
-			self:diffusetopedge(ColorLightTone(StageToColor(curStage)));
-		end
-	}
+if songtitl == "Pluto Relinquish" then
+discimg = "02"
+end
+
+if songtitl == "SABER WING" then
+discimg = "03"
+end
+
+if songtitl == "On The Break" then
+discimg = "04"
+end
+
+if songtitl == "SABER WING (AKIRA ISHIHARA Headshot mix)" then
+discimg = "05"
+end
+
+if songtitl == "On The Bounce" then
+discimg = "06"
+end
+
+if songtitl == "Horatio" then
+discimg = "07"
+end
+
+if songtitl == "Trigger" then
+discimg = "08"
+end
+
+if songtitl == "TRIP MACHINE(X-Special)" then
+discimg = "09"
+end
+
+if songtitl == "PARANOiA(X-Special)" then
+discimg = "10"
+end
+
+if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~(X-Special)" then
+discimg = "11"
+end
+
+if songtitl == "PARANOiA MAX~DIRTY MIX~in roulette(X-Special)" then
+discimg = "12"
+end
+
+if songtitl == "PARANOiA MAX~DIRTY MIX~ (X-Special)" then
+discimg = "13"
+end
+
+if songtitl == "PARANOiA Rebirth (X-Special)" then
+discimg = "14"
+end
+
+if songtitl == "AFRONOVA (X-Special)" then
+discimg = "15"
+end
+
+if songtitl == "PARANOiA ETERNAL (X-Special)" then
+discimg = "16"
+end
+
+if songtitl == "TRIP MACHINE CLIMAX (X-Special)" then
+discimg = "17"
+end
+
+if songtitl == "PARANOiA EVOLUTION (X-Special)" then
+discimg = "18"
+end
+
+if songtitl == "Healing Vision (X-Special)" then
+discimg = "19"
+end
+
+if songtitl == "MAX 300 (X-Special)" then
+discimg = "20"
+end
+
+if songtitl == "CANDY (X-Special)" then
+discimg = "21"
+end
+
+if songtitl == "MAXX UNLIMITED (X-Special)" then
+discimg = "22"
+end
+
+if songtitl == "KAKUMEI (X-Special)" then
+discimg = "23"
+end
+
+if songtitl == "The legend of MAX (X-Special)" then
+discimg = "24"
+end
+
+if songtitl == "Dance Dance Revolution (X-Special)" then
+discimg = "25"
+end
+
+if songtitl == "DEAD END(GROOVE RADAR Special)" then
+discimg = "26"
+end
+
+if songtitl == "KIMONO PRINCESS" then
+discimg = "27"
+end
+
+if songtitl == "Pluto The First" then
+discimg = "28"
+end
+
+if songtitl == "roppongi EVOLVED ver. A" then
+discimg = "29"
+end
+
+if songtitl == "roppongi EVOLVED ver. B" then
+discimg = "29"
+end
+
+if songtitl == "roppongi EVOLVED ver. C" then
+discimg = "29"
+end
+
+if songtitl == "TRIP MACHINE" then
+discimg = "09"
+end
+
+if songtitl == "PARANOiA" then
+discimg = "10"
+end
+
+if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~" then
+discimg = "11"
+end
+
+if songtitl == "PARANOiA MAX~DIRTY MIX~" then
+discimg = "13"
+end
+
+if songtitl == "PARANOiA Rebirth" then
+discimg = "14"
+end
+
+if songtitl == "AFRONOVA" then
+discimg = "15"
+end
+
+if songtitl == "PARANOiA ETERNAL" then
+discimg = "16"
+end
+
+if songtitl == "TRIP MACHINE CLIMAX" then
+discimg = "17"
+end
+
+if songtitl == "PARANOiA EVOLUTION" then
+discimg = "18"
+end
+
+if songtitl == "Healing Vision" then
+discimg = "19"
+end
+
+if songtitl == "MAX 300" then
+discimg = "20"
+end
+
+if songtitl == "CANDY" then
+discimg = "21"
+end
+
+if songtitl == "MAXX UNLIMITED" then
+discimg = "22"
+end
+
+if songtitl == "KAKUMEI" then
+discimg = "23"
+end
+
+if songtitl == "The legend of MAX" then
+discimg = "24"
+end
+
+if songtitl == "Dance Dance Revolution" then
+discimg = "25"
+end
+
+if songtitl == "DEAD END" then
+discimg = "26"
 end
 
 t[#t+1] = Def.ActorFrame {
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
-	OnCommand=cmd(stoptweening;zoom,1.25;decelerate,3;zoom,1);
-	stage_num_actor .. {
-		OnCommand=cmd(diffusealpha,0;linear,0.25;diffusealpha,1;sleep,1.75;linear,0.5;zoomy,0;zoomx,2;diffusealpha,0);
-	};
-};
 
-t[#t+1] = Def.ActorFrame {
-  InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+96);
-  OnCommand=cmd(stoptweening;addy,-16;decelerate,3;addy,16);
-	LoadFont("Common Normal") .. {
-		Text=GAMESTATE:IsCourseMode() and GAMESTATE:GetCurrentCourse():GetDisplayFullTitle() or GAMESTATE:GetCurrentSong():GetDisplayFullTitle();
-		InitCommand=cmd(strokecolor,Color("Outline");y,-20);
-		OnCommand=cmd(diffusealpha,0;linear,0.5;diffusealpha,1;sleep,1.5;linear,0.5;diffusealpha,0);
+LoadActor( "../Common ScreenStages/cd"..discimg )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+80;zoomx,1.825;zoomy,0;sleep,1.866;linear,0.066;zoomx,1.309;zoomy,0.11;linear,0.066;zoomx,1;zoomy,1;linear,0.066;zoomx,0.103;zoomy,1.3;sleep,0.016;linear,0.05;zoomx,1;zoomy,1;sleep,6;linear,0.133;zoomy,0.1;sleep,0.000;linear,0.1;zoomx,1.625;zoomy,0);
 	};
-	LoadFont("Common Normal") .. {
-		Text=GAMESTATE:IsCourseMode() and ToEnumShortString( GAMESTATE:GetCurrentCourse():GetCourseType() ) or GAMESTATE:GetCurrentSong():GetDisplayArtist();
-		InitCommand=cmd(strokecolor,Color("Outline");zoom,0.75);
-		OnCommand=cmd(diffusealpha,0;linear,0.5;diffusealpha,1;sleep,1.5;linear,0.5;diffusealpha,0);
-	};
-	LoadFont("Common Normal") .. {
-		InitCommand=cmd(strokecolor,Color("Outline");diffuse,Color("Orange");diffusebottomedge,Color("Yellow");zoom,0.75;y,20);
-		BeginCommand=function(self)
-			local text = "";
-			local SongOrCourse;
-			if GAMESTATE:IsCourseMode() then
-				local trail = GAMESTATE:GetCurrentTrail(GAMESTATE:GetMasterPlayerNumber());
-				SongOrCourse = GAMESTATE:GetCurrentCourse();
-				if SongOrCourse:GetEstimatedNumStages() == 1 then
-					text = SongOrCourse:GetEstimatedNumStages() .." Stage / ".. SecondsToMSSMsMs( TrailUtil.GetTotalSeconds(trail) );
-				else
-					text = SongOrCourse:GetEstimatedNumStages() .." Stages / ".. SecondsToMSSMsMs( TrailUtil.GetTotalSeconds(trail) );
-				end
-			else
-				SongOrCourse = GAMESTATE:GetCurrentSong();
-				text = SecondsToMSSMsMs( SongOrCourse:MusicLengthSeconds() );
-			end;
-			self:settext(text);
-		end;
-		OnCommand=cmd(diffusealpha,0;linear,0.5;diffusealpha,1;sleep,1.5;linear,0.5;diffusealpha,0);
-	};
-};
+}
 
 return t

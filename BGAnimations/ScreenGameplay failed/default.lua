@@ -23,11 +23,11 @@ t[#t+1] = Def.ActorFrame {
 	};
 
 	LoadActor( "../door1" )..{
-		OnCommand=cmd(zoomx,1.41;x,SCREEN_CENTER_X-202;y,SCREEN_CENTER_Y;addx,-320;sleep,0.000;sleep,0.316;linear,0.2;addx,320;sleep,1.167;sleep,3.383;linear,0.2;addx,-320);
+		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X-214;y,SCREEN_CENTER_Y;addx,-320;sleep,0.000;sleep,0.316;linear,0.2;addx,320;sleep,1.167;sleep,3.383;linear,0.2;addx,-320);
 	};
 
 	LoadActor( "../door2" )..{
-		OnCommand=cmd(zoomx,1.41;x,SCREEN_CENTER_X+202;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0.316;linear,0.2;addx,-320;sleep,1.167;sleep,3.383;linear,0.2;addx,320);
+		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0.316;linear,0.2;addx,-320;sleep,1.167;sleep,3.383;linear,0.2;addx,320);
 	};
 };
 
