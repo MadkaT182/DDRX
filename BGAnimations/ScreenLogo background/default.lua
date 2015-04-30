@@ -19,7 +19,7 @@ return Def.ActorFrame {
 	};
 
 	LoadActor( "ddrx_light1.png" )..{
-		OnCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,770;x,540;rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98);
+		OnCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,770;x,714;rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98);
 		-- CommandRepeatSeconds=14
 	};
 
