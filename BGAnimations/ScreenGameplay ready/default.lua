@@ -1,9 +1,6 @@
-if IsNetSMOnline() then
-	-- don't show "Ready" online; it will obscure the immediately-starting steps.
-	return Def.ActorFrame{}
-end
-
-return LoadActor("ready") .. {
-	InitCommand=cmd(Center;draworder,105);
-	StartTransitioningCommand=cmd(zoom,1.3;diffusealpha,0;bounceend,0.25;zoom,1;diffusealpha,1;linear,0.15;glow,BoostColor(Color("Orange"),1.75);decelerate,0.3;glow,1,1,1,0;sleep,1-0.45;linear,0.25;diffusealpha,0;);
-};
+return Def.ActorFrame {
+	LoadActor( "../ready" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X+3;y,SCREEN_CENTER_Y+1;glow,color("1,1,1,0");zoomy,0;zoomx,1.34;sleep,0.0000;accelerate,0.133;zoomy,0.807;zoomx,1;decelerate,0.066;zoomy,1.192;glow,color("1,1,1,0.5");sleep,0.016;accelerate,0.033;glow,color("1,1,1,0");zoomy,1);
+		OnCommand=cmd(sleep,1.5;diffusealpha,0;decelerate,0.133;zoomx,1.14);
+	};
+}
