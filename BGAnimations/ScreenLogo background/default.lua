@@ -65,6 +65,10 @@ return Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X+84;y,SCREEN_CENTER_Y-11;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
 	};
 
+	LoadActor( "serial.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-323;y,SCREEN_CENTER_Y-224);
+	};
+
 	LoadActor( "../_black" )..{
 		OnCommand=cmd(diffusealpha,1;decelerate,0.166;diffusealpha,0);
 	};
