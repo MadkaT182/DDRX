@@ -38,31 +38,31 @@ return Def.ActorFrame {
 	};
 
 	LoadActor( "D1.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+		OnCommand=cmd(x,SCREEN_CENTER_X-156;y,SCREEN_CENTER_Y+11;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
 		-- CommandRepeatSeconds=18.6
 	};
 
 	LoadActor( "D2.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.466;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+		OnCommand=cmd(x,SCREEN_CENTER_X-138;y,SCREEN_CENTER_Y+58;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.466;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
 		-- CommandRepeatSeconds=18.6
 	};
 
 	LoadActor( "R.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.932;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+		OnCommand=cmd(x,SCREEN_CENTER_X-30;y,SCREEN_CENTER_Y+110;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.932;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
 		-- CommandRepeatSeconds=18.6
 	};
 
 	LoadActor( "X.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,2.183;sleep,1.631;linear,0.383;diffusealpha,0.4;zoom,1.15;linear,0.383;diffusealpha,0;zoom,1.3);
+		OnCommand=cmd(x,SCREEN_CENTER_X+84;y,SCREEN_CENTER_Y-11;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,2.183;sleep,1.631;linear,0.383;diffusealpha,0.4;zoom,1.15;linear,0.383;diffusealpha,0;zoom,1.3);
 		-- CommandRepeatSeconds=18.6
 	};
 
 	LoadActor( "X.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.416;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
+		OnCommand=cmd(x,SCREEN_CENTER_X+84;y,SCREEN_CENTER_Y-11;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.416;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
 	};
 
 	LoadActor( "X.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+215;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
+		OnCommand=cmd(x,SCREEN_CENTER_X+84;y,SCREEN_CENTER_Y-11;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
 	};
 
 	LoadActor( "../_black" )..{
