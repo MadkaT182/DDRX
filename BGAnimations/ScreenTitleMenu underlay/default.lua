@@ -118,6 +118,19 @@ return Def.ActorFrame {
 		DCommand=cmd(x,SCREEN_CENTER_X-2;y,SCREEN_CENTER_Y+170;diffusealpha,0;sleep,0.433;linear,0.05;diffusealpha,1);
 	};
 
+-- for i=1, 6 do
+-- 	t[t+1] = LoadActor( "choice_frame.png" ) .. {
+-- 		InitCommand=cmd(Center;addx,146;addy,-176+(32*(i-1)));
+-- 		OnCommand=cmd(playcommand,"FocusIndex";rotationz,(i%2 == 1) and -2 or 2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+-- 		MenuSelectionChangedMessageCommand=cmd(stoptweening;playcommand,"FocusIndex");
+-- 		FocusIndexCommand=function(self)
+-- 			local player = GAMESTATE:GetMasterPlayerNumber();
+-- 			local selection = SCREENMAN:GetTopScreen():GetSelectionIndex(player)+1;
+-- 			self:diffuse(selection == i and color("1,1,1,1") or color("0.3,0.3,0.3,1"))
+-- 		end;
+-- 	};
+-- end
+
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand,"Ch1");
 		Ch1Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-176;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
@@ -125,7 +138,7 @@ return Def.ActorFrame {
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch2");
-		Ch2Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-134;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch2Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-134;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
@@ -135,7 +148,7 @@ return Def.ActorFrame {
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch4");
-		Ch4Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-70;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch4Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-70;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
@@ -145,7 +158,7 @@ return Def.ActorFrame {
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch6");
-		Ch6Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-6;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch6Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-6;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "../ScreenLogo background/serial.png" )..{
@@ -154,12 +167,12 @@ return Def.ActorFrame {
 
 	LoadActor( "../_black" )..{
 		OnCommand=cmd(queuecommand,"Blk");
-		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
+		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
 	};
 
 	LoadActor( "../_black" )..{
 		OnCommand=cmd(queuecommand, "Blk");
-		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
+		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
 	};
 
 };
