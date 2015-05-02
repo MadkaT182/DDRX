@@ -13,14 +13,16 @@ return Def.ActorFrame {
 		OnCommand=cmd(Center;FullScreen;linear,0.75);
 	};
 
-	LoadActor( "ddrx_light1.png" )..{
-		OnCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,0;x,-320;rotationz,-90;linear,7;rotationz,6;linear,7;rotationz,-90);
-		-- CommandRepeatSeconds=14
+	LoadActor( "../ScreenLogo background/ddrx_light1.png" )..{
+	OnCommand=cmd(queuecommand,"Animate";queuecommand,"Later");
+	AnimateCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,0;x,-320;rotationz,-90;linear,7;rotationz,6;linear,7;rotationz,-90);
+	LaterCommand=cmd(sleep,14;queuecommand,"Animate");
 	};
 
-	LoadActor( "ddrx_light1.png" )..{
-		OnCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,770;x,714;rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98);
-		-- CommandRepeatSeconds=14
+	LoadActor( "../ScreenLogo background/ddrx_light1.png" )..{
+	OnCommand=cmd(queuecommand,"Animate";queuecommand,"Later");
+	AnimateCommand=cmd(diffusealpha,0.2;blend,'BlendMode_Add';horizalign,left;vertalign,top;y,770;x,714;rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98);
+	LaterCommand=cmd(sleep,14;queuecommand,"Animate");
 	};
 
 	LoadActor( "ddrx_logo.png" )..{
