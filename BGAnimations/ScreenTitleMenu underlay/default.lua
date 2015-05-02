@@ -83,12 +83,6 @@ return Def.ActorFrame {
 		X3Command=cmd(x,SCREEN_CENTER_X+84;y,SCREEN_CENTER_Y-11;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
 	};
 
-
-	-- LoadActor( "../_black" )..{
-	-- 	OnCommand=cmd(queuecommand,"Blk");
-	-- 	BlkCommand=cmd(diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
-	-- };
-
 	LoadActor( "left_tab.png" )..{
 		OnCommand=cmd(queuecommand,"left");
 		leftCommand=cmd(x,39;y,240;addx,-78;sleep,0.283;decelerate,0.066;addx,78);
@@ -158,9 +152,14 @@ return Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X-323;y,SCREEN_CENTER_Y-224);
 	};
 
-	-- LoadActor( "../_black" )..{
-	-- 	OnCommand=cmd(queuecommand, "BlkCommand");
-	-- 	BlkCommand=cmd(diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
-	-- };
+	LoadActor( "../_black" )..{
+		OnCommand=cmd(queuecommand,"Blk");
+		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
+	};
+
+	LoadActor( "../_black" )..{
+		OnCommand=cmd(queuecommand, "Blk");
+		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;sleep,64.5;accelerate,0.5;diffusealpha,1);
+	};
 
 };
