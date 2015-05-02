@@ -165,14 +165,14 @@ return Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X-323;y,SCREEN_CENTER_Y-224);
 	};
 
-	LoadActor( "../_black" )..{
-		OnCommand=cmd(queuecommand,"Blk");
-		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
-	};
+	-- LoadActor( "../_black" )..{
+	-- 	OnCommand=cmd(queuecommand,"Blk");
+	-- 	BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
+	-- };
 
-	LoadActor( "../_black" )..{
-		OnCommand=cmd(queuecommand, "Blk");
-		BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
-	};
+	-- LoadActor( "../_black" )..{
+	-- 	OnCommand=cmd(queuecommand, "Blk");
+	-- 	BlkCommand=cmd(Center;FullScreen;diffusealpha,0;accelerate,0.5;diffusealpha,1);
+	-- };
 
 };
