@@ -3,6 +3,8 @@ DDRX SM5 theme
 
 SM5 port of the DDRX theme original by TakuyaMAXX
 
+Thanks to Mad Matt, AJ 187, razorblade for the help.
+
 Original readme:
 
 Dance Dance Revolution X Rev. 4.0 (Designed for StepMania 3.9 and 3.9 Plus Redux)
