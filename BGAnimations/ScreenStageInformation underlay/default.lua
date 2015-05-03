@@ -102,30 +102,6 @@ t[#t+1] =Def.ActorFrame{
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+107;zoomy,0;diffusealpha,0.8;sleep,0.000;sleep,0.816;decelerate,0.15;zoomy,1;diffusealpha,1;accelerate,0.033;zoomx,1.06;decelerate,0.033;zoomx,1);
 	};
 
--- LoadActor( "../headerFrame" )..{
--- 		InitCommand=cmd(vertalign,top;horizalign,right;x,SCREEN_CENTER_X+147;y,SCREEN_CENTER_Y-232;zoom,0;sleep,2.116;linear,0.133;zoom,1.05;linear,0.166;zoom,1;sleep,5.23;linear,0.133;addy,-62);
--- 	};
-
--- LoadActor( "../Common ScreenStages/selected_song" )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X-92;y,SCREEN_CENTER_Y-205;horizalign,left;addy,-8;zoom,0;sleep,2.4;linear,0.05;addy,8;zoom,1.042;linear,0.05;zoom,1;sleep,5.1;linear,0.130;addy,-45);
--- 		Condition=not GAMESTATE:IsCourseMode();
--- 	};
-
--- LoadActor( "../Common ScreenStages/selected_course" )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X-92;y,SCREEN_CENTER_Y-205;horizalign,left;addy,-8;zoom,1.084;sleep,0.000;sleep,2.4;linear,0.05;addy,8;zoom,1.042;linear,0.05;zoom,1;sleep,5.1;linear,0.130;addy,-45);
--- 		Condition=GAMESTATE:IsCourseMode();
--- 	};
-
--- LoadActor( "../../Graphics/ScreenSelectMusic header/mode_std" )..{
--- 	InitCommand=cmd(x,SCREEN_CENTER_X-96;y,SCREEN_CENTER_Y-210;horizalign,left;addy,-8;zoom,0;sleep,2.3;zoom,1.084;linear,0.05;zoom,1;sleep,5.1;linear,0.2;zoomy,0);
--- 	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Regular';
--- };
-
--- LoadActor( "../../Graphics/ScreenSelectMusic header/mode_battle" )..{
--- 	InitCommand=cmd(x,SCREEN_CENTER_X-96;y,SCREEN_CENTER_Y-210;horizalign,left;addy,-8;zoom,0;sleep,2.3;zoom,1.084;linear,0.05;zoom,1;sleep,5.1;linear,0.2;zoomy,0);
--- 	Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Rave';
--- };
-
 };
 
 -- if GAMESTATE:IsCourseMode() then
@@ -144,207 +120,207 @@ t[#t+1] =Def.ActorFrame{
 -- 	};
 -- end;
 
--- local songtitl = GAMESTATE:GetCurrentSong():GetTranslitMainTitle()
+local songtitl = GAMESTATE:GetCurrentSong():GetTranslitMainTitle()
 
--- local discimg = "xx"
+local discimg = "xx"
 
--- if songtitl == "Pluto" then
--- discimg = "01"
--- end
+if songtitl == "Pluto" then
+discimg = "01"
+end
 
--- if songtitl == "Pluto Relinquish" then
--- discimg = "02"
--- end
+if songtitl == "Pluto Relinquish" then
+discimg = "02"
+end
 
--- if songtitl == "SABER WING" then
--- discimg = "03"
--- end
+if songtitl == "SABER WING" then
+discimg = "03"
+end
 
--- if songtitl == "On The Break" then
--- discimg = "04"
--- end
+if songtitl == "On The Break" then
+discimg = "04"
+end
 
--- if songtitl == "SABER WING (AKIRA ISHIHARA Headshot mix)" then
--- discimg = "05"
--- end
+if songtitl == "SABER WING (AKIRA ISHIHARA Headshot mix)" then
+discimg = "05"
+end
 
--- if songtitl == "On The Bounce" then
--- discimg = "06"
--- end
+if songtitl == "On The Bounce" then
+discimg = "06"
+end
 
--- if songtitl == "Horatio" then
--- discimg = "07"
--- end
+if songtitl == "Horatio" then
+discimg = "07"
+end
 
--- if songtitl == "Trigger" then
--- discimg = "08"
--- end
+if songtitl == "Trigger" then
+discimg = "08"
+end
 
--- if songtitl == "TRIP MACHINE(X-Special)" then
--- discimg = "09"
--- end
+if songtitl == "TRIP MACHINE(X-Special)" then
+discimg = "09"
+end
 
--- if songtitl == "PARANOiA(X-Special)" then
--- discimg = "10"
--- end
+if songtitl == "PARANOiA(X-Special)" then
+discimg = "10"
+end
 
--- if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~(X-Special)" then
--- discimg = "11"
--- end
+if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~(X-Special)" then
+discimg = "11"
+end
 
--- if songtitl == "PARANOiA MAX~DIRTY MIX~in roulette(X-Special)" then
--- discimg = "12"
--- end
+if songtitl == "PARANOiA MAX~DIRTY MIX~in roulette(X-Special)" then
+discimg = "12"
+end
 
--- if songtitl == "PARANOiA MAX~DIRTY MIX~ (X-Special)" then
--- discimg = "13"
--- end
+if songtitl == "PARANOiA MAX~DIRTY MIX~ (X-Special)" then
+discimg = "13"
+end
 
--- if songtitl == "PARANOiA Rebirth (X-Special)" then
--- discimg = "14"
--- end
+if songtitl == "PARANOiA Rebirth (X-Special)" then
+discimg = "14"
+end
 
--- if songtitl == "AFRONOVA (X-Special)" then
--- discimg = "15"
--- end
+if songtitl == "AFRONOVA (X-Special)" then
+discimg = "15"
+end
 
--- if songtitl == "PARANOiA ETERNAL (X-Special)" then
--- discimg = "16"
--- end
+if songtitl == "PARANOiA ETERNAL (X-Special)" then
+discimg = "16"
+end
 
--- if songtitl == "TRIP MACHINE CLIMAX (X-Special)" then
--- discimg = "17"
--- end
+if songtitl == "TRIP MACHINE CLIMAX (X-Special)" then
+discimg = "17"
+end
 
--- if songtitl == "PARANOiA EVOLUTION (X-Special)" then
--- discimg = "18"
--- end
+if songtitl == "PARANOiA EVOLUTION (X-Special)" then
+discimg = "18"
+end
 
--- if songtitl == "Healing Vision (X-Special)" then
--- discimg = "19"
--- end
+if songtitl == "Healing Vision (X-Special)" then
+discimg = "19"
+end
 
--- if songtitl == "MAX 300 (X-Special)" then
--- discimg = "20"
--- end
+if songtitl == "MAX 300 (X-Special)" then
+discimg = "20"
+end
 
--- if songtitl == "CANDY (X-Special)" then
--- discimg = "21"
--- end
+if songtitl == "CANDY (X-Special)" then
+discimg = "21"
+end
 
--- if songtitl == "MAXX UNLIMITED (X-Special)" then
--- discimg = "22"
--- end
+if songtitl == "MAXX UNLIMITED (X-Special)" then
+discimg = "22"
+end
 
--- if songtitl == "KAKUMEI (X-Special)" then
--- discimg = "23"
--- end
+if songtitl == "KAKUMEI (X-Special)" then
+discimg = "23"
+end
 
--- if songtitl == "The legend of MAX (X-Special)" then
--- discimg = "24"
--- end
+if songtitl == "The legend of MAX (X-Special)" then
+discimg = "24"
+end
 
--- if songtitl == "Dance Dance Revolution (X-Special)" then
--- discimg = "25"
--- end
+if songtitl == "Dance Dance Revolution (X-Special)" then
+discimg = "25"
+end
 
--- if songtitl == "DEAD END(GROOVE RADAR Special)" then
--- discimg = "26"
--- end
+if songtitl == "DEAD END(GROOVE RADAR Special)" then
+discimg = "26"
+end
 
--- if songtitl == "KIMONO PRINCESS" then
--- discimg = "27"
--- end
+if songtitl == "KIMONO PRINCESS" then
+discimg = "27"
+end
 
--- if songtitl == "Pluto The First" then
--- discimg = "28"
--- end
+if songtitl == "Pluto The First" then
+discimg = "28"
+end
 
--- if songtitl == "roppongi EVOLVED ver. A" then
--- discimg = "29"
--- end
+if songtitl == "roppongi EVOLVED ver. A" then
+discimg = "29"
+end
 
--- if songtitl == "roppongi EVOLVED ver. B" then
--- discimg = "29"
--- end
+if songtitl == "roppongi EVOLVED ver. B" then
+discimg = "29"
+end
 
--- if songtitl == "roppongi EVOLVED ver. C" then
--- discimg = "29"
--- end
+if songtitl == "roppongi EVOLVED ver. C" then
+discimg = "29"
+end
 
--- if songtitl == "TRIP MACHINE" then
--- discimg = "09"
--- end
+if songtitl == "TRIP MACHINE" then
+discimg = "09"
+end
 
--- if songtitl == "PARANOiA" then
--- discimg = "10"
--- end
+if songtitl == "PARANOiA" then
+discimg = "10"
+end
 
--- if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~" then
--- discimg = "11"
--- end
+if songtitl == "SP-TRIP MACHINE~JUNGLE MIX~" then
+discimg = "11"
+end
 
--- if songtitl == "PARANOiA MAX~DIRTY MIX~" then
--- discimg = "13"
--- end
+if songtitl == "PARANOiA MAX~DIRTY MIX~" then
+discimg = "13"
+end
 
--- if songtitl == "PARANOiA Rebirth" then
--- discimg = "14"
--- end
+if songtitl == "PARANOiA Rebirth" then
+discimg = "14"
+end
 
--- if songtitl == "AFRONOVA" then
--- discimg = "15"
--- end
+if songtitl == "AFRONOVA" then
+discimg = "15"
+end
 
--- if songtitl == "PARANOiA ETERNAL" then
--- discimg = "16"
--- end
+if songtitl == "PARANOiA ETERNAL" then
+discimg = "16"
+end
 
--- if songtitl == "TRIP MACHINE CLIMAX" then
--- discimg = "17"
--- end
+if songtitl == "TRIP MACHINE CLIMAX" then
+discimg = "17"
+end
 
--- if songtitl == "PARANOiA EVOLUTION" then
--- discimg = "18"
--- end
+if songtitl == "PARANOiA EVOLUTION" then
+discimg = "18"
+end
 
--- if songtitl == "Healing Vision" then
--- discimg = "19"
--- end
+if songtitl == "Healing Vision" then
+discimg = "19"
+end
 
--- if songtitl == "MAX 300" then
--- discimg = "20"
--- end
+if songtitl == "MAX 300" then
+discimg = "20"
+end
 
--- if songtitl == "CANDY" then
--- discimg = "21"
--- end
+if songtitl == "CANDY" then
+discimg = "21"
+end
 
--- if songtitl == "MAXX UNLIMITED" then
--- discimg = "22"
--- end
+if songtitl == "MAXX UNLIMITED" then
+discimg = "22"
+end
 
--- if songtitl == "KAKUMEI" then
--- discimg = "23"
--- end
+if songtitl == "KAKUMEI" then
+discimg = "23"
+end
 
--- if songtitl == "The legend of MAX" then
--- discimg = "24"
--- end
+if songtitl == "The legend of MAX" then
+discimg = "24"
+end
 
--- if songtitl == "Dance Dance Revolution" then
--- discimg = "25"
--- end
+if songtitl == "Dance Dance Revolution" then
+discimg = "25"
+end
 
--- if songtitl == "DEAD END" then
--- discimg = "26"
--- end
+if songtitl == "DEAD END" then
+discimg = "26"
+end
 
--- t[#t+1] = Def.ActorFrame {
+t[#t+1] = Def.ActorFrame {
 
--- LoadActor( "../Common ScreenStages/cd"..discimg )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+80;zoomx,1.825;zoomy,0;sleep,1.866;linear,0.066;zoomx,1.309;zoomy,0.11;linear,0.066;zoomx,1;zoomy,1;linear,0.066;zoomx,0.103;zoomy,1.3;sleep,0.016;linear,0.05;zoomx,1;zoomy,1;sleep,6;linear,0.133;zoomy,0.1;sleep,0.000;linear,0.1;zoomx,1.625;zoomy,0);
--- 	};
--- }
+LoadActor( "../Common ScreenStages/cd"..discimg )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+80;zoomx,1.825;zoomy,0;sleep,1.866;linear,0.066;zoomx,1.309;zoomy,0.11;linear,0.066;zoomx,1;zoomy,1;linear,0.066;zoomx,0.103;zoomy,1.3;sleep,0.016;linear,0.05;zoomx,1;zoomy,1;sleep,6;linear,0.133;zoomy,0.1;sleep,0.000;linear,0.1;zoomx,1.625;zoomy,0);
+	};
+}
 
 return t
