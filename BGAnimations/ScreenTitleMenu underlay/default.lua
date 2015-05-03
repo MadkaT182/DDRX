@@ -119,7 +119,7 @@ return Def.ActorFrame {
 	};
 
 -- for i=1, 6 do
--- 	t[t+1] = LoadActor( "choice_frame.png" ) .. {
+-- 	t[#t+1] = LoadActor( "choice_frame.png" ) .. {
 -- 		InitCommand=cmd(Center;addx,146;addy,-176+(32*(i-1)));
 -- 		OnCommand=cmd(playcommand,"FocusIndex";rotationz,(i%2 == 1) and -2 or 2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 -- 		MenuSelectionChangedMessageCommand=cmd(stoptweening;playcommand,"FocusIndex");
@@ -133,32 +133,32 @@ return Def.ActorFrame {
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand,"Ch1");
-		Ch1Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-176;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch1Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-176;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch2");
-		Ch2Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-134;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch2Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-134;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch3");
-		Ch3Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-102;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch3Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-102;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch4");
-		Ch4Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-70;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch4Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-70;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch5");
-		Ch5Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-38;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch5Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-38;rotationz,-2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "choice_frame.png" )..{
 		OnCommand=cmd(queuecommand, "Ch6");
-		Ch6Command=cmd(x,SCREEN_CENTER_X+146;y,SCREEN_CENTER_Y-6;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
+		Ch6Command=cmd(x,SCREEN_RIGHT-174;y,SCREEN_CENTER_Y-6;rotationz,2;zoomx,0;sleep,0.15;decelerate,0.083;zoomx,1.1;accelerate,0.016;zoomx,1);
 	};
 
 	LoadActor( "../ScreenLogo background/serial.png" )..{
