@@ -144,11 +144,11 @@ t[#t+1] = Def.ActorFrame {
 -- t[#t+1] = StandardDecorationFromFileOptional("PaneDisplayTextP2","PaneDisplayTextP2");
 -- t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
 
--- t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
--- t[#t+1] = StandardDecorationFromFileOptional("BPMLabel","BPMLabel");
--- t[#t+1] = StandardDecorationFromFileOptional("SegmentDisplay","SegmentDisplay");
--- --[[ t[#t+1] = StandardDecorationFromFileOptional("NegativeDisplay","NegativeDisplay") .. {
--- }; --]]
+t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
+--t[#t+1] = StandardDecorationFromFileOptional("BPMLabel","BPMLabel");
+--t[#t+1] = StandardDecorationFromFileOptional("SegmentDisplay","SegmentDisplay");
+--[[ t[#t+1] = StandardDecorationFromFileOptional("NegativeDisplay","NegativeDisplay") .. {
+}; --]]
 
 -- t[#t+1] = StandardDecorationFromFileOptional("SongTime","SongTime") .. {
 -- 	SetCommand=function(self)
