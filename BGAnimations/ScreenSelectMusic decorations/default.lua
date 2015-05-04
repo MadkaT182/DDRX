@@ -145,7 +145,8 @@ t[#t+1] = Def.ActorFrame {
 -- t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
 
 t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
---t[#t+1] = StandardDecorationFromFileOptional("BPMLabel","BPMLabel");
+t[#t+1] = StandardDecorationFromFileOptional( "GrooveRadar", "GrooveRadar" );
+
 --t[#t+1] = StandardDecorationFromFileOptional("SegmentDisplay","SegmentDisplay");
 --[[ t[#t+1] = StandardDecorationFromFileOptional("NegativeDisplay","NegativeDisplay") .. {
 }; --]]
