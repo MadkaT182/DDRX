@@ -2,6 +2,9 @@ return Def.ActorFrame {
 	LoadActor( "../_shared background" )..{
 	};
 
+	LoadActor( "../../Graphics/_shared options header" )..{
+	};
+
 	LoadActor( "playerFrame_bg" )..{
 		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+93;addx,-294;rotationz,-90;sleep,0.2;linear,0.166;rotationz,0;addx,230;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
 		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-316);

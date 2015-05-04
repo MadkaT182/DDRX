@@ -3,7 +3,6 @@ local t = Def.ActorFrame{};
 t[#t+1] = Def.ActorFrame {
 
 	LoadActor("../../Graphics/ScreenSelectMusic header")..{
-
 	};
 
 	LoadActor("../../Graphics/timerBG")..{
