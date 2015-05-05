@@ -15,6 +15,11 @@ return Def.ActorFrame {
 	LoadActor("../../Graphics/timerBG")..{
 	};
 
+	LoadActor( "judgmentBG" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+26;zoomy,0;sleep,0.000;linear,0.2;zoomy,1);
+		OffCommand=cmd(sleep,0.0000;sleep,0.016;linear,0.3;zoomy,0);
+	};
+
 	LoadActor( "../Common ScreenStages/bottom_stage" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-12;zoomx,1.34;addy,24;linear,0.133;addy,-24);
 		OffCommand=cmd(linear,0.133;addy,24);
