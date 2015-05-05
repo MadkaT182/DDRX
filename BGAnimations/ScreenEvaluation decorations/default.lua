@@ -37,8 +37,6 @@ end
 
 local t = LoadFallbackB();
 
-t[#t+1] = StandardDecorationFromFileOptional("StageDisplay","StageDisplay");
-
 if ShowStandardDecoration("StepsDisplay") then
 	for pn in ivalues(PlayerNumber) do
 		local t2 = Def.StepsDisplay {
