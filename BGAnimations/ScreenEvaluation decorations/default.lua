@@ -69,27 +69,6 @@ for pn in ivalues(PlayerNumber) do
 	};
 end
 
-for pn in ivalues(PlayerNumber) do
-	local MetricsName = "PeakComboAward" .. PlayerNumberToString(pn);
-	t[#t+1] = LoadActor( THEME:GetPathG(Var "LoadingScreen", "PeakComboAward"), pn ) .. {
-		InitCommand=function(self) 
-			self:player(pn); 
-			self:name(MetricsName); 
-			ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen"); 
-		end;
-		BeginCommand=cmd(playcommand,"Set");
-		SetCommand=function(self)
-			local tStats = THEME:GetMetric(Var "LoadingScreen", "Summary") and STATSMAN:GetAccumPlayedStageStats() or STATSMAN:GetCurStageStats();
-			tStats = tStats:GetPlayerStageStats(pn);
-			if tStats:GetPeakComboAward() then
-				self:settext( THEME:GetString( "PeakComboAward", ToEnumShortString( tStats:GetPeakComboAward() ) ) );
-			else
-				self:settext( "" );
-			end
-		end;
-	};
-end
-
 t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation") .. {
 	BeginCommand=function(self)
 		local SongOrCourse;
@@ -135,19 +114,15 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 -- 			self:playcommand("Tick");
 		elseif GAMESTATE:GetCurrentCourse() then
 			SongOrCourse = GAMESTATE:GetCurrentCourse();
-			
 			c.TextTitle:settext( SongOrCourse:GetDisplayMainTitle() or nil );
 			c.TextSubtitle:settext( SongOrCourse:GetDisplaySubTitle() or nil );
 			c.TextArtist:settext( SongOrCourse:GetDisplayArtist() or nil );
-			
 -- 			self:playcommand("Tick");
 		else
 			SongOrCourse = nil;
-			
 			c.TextTitle:settext("");
 			c.TextSubtitle:settext("");
 			c.TextArtist:settext("");
-			
 			self:playcommand("Hide")
 		end
 	end;
