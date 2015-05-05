@@ -128,7 +128,7 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 		else
 			return
 		end
-		
+
 		if SongOrCourse:HasBanner() then
 			self:visible(false);
 		else
@@ -184,8 +184,6 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 	CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
 	DisplayLanguageChangedMessageCommand=cmd(playcommand,"Set");
 };
-t[#t+1] = StandardDecorationFromFileOptional("LifeDifficulty","LifeDifficulty");
-t[#t+1] = StandardDecorationFromFileOptional("TimingDifficulty","TimingDifficulty");
 t[#t+1] = StandardDecorationFromFileOptional("GameType","GameType");
 t[#t+1] = Def.ActorFrame {
 	Condition=GAMESTATE:HasEarnedExtraStage() and GAMESTATE:IsExtraStage() and not GAMESTATE:IsExtraStage2();
