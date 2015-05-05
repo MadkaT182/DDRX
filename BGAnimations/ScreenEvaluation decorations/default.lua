@@ -184,7 +184,6 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 	CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
 	DisplayLanguageChangedMessageCommand=cmd(playcommand,"Set");
 };
-t[#t+1] = StandardDecorationFromFileOptional("GameType","GameType");
 t[#t+1] = Def.ActorFrame {
 	Condition=GAMESTATE:HasEarnedExtraStage() and GAMESTATE:IsExtraStage() and not GAMESTATE:IsExtraStage2();
 	InitCommand=cmd(draworder,105);
