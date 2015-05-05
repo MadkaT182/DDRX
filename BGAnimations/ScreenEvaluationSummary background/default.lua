@@ -15,9 +15,21 @@ return Def.ActorFrame {
 	LoadActor("../../Graphics/timerBG")..{
 	};
 
-	LoadActor( "judgmentBG" )..{
+	LoadActor( "../ScreenEvaluation background/judgmentBG" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+26;zoomy,0;sleep,0.000;linear,0.2;zoomy,1);
 		OffCommand=cmd(sleep,0.0000;sleep,0.016;linear,0.3;zoomy,0);
+	};
+
+	LoadActor( "../ScreenEvaluation background/p1.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-248;y,SCREEN_CENTER_Y-55;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
+		OffCommand=cmd(zoomy,1;sleep,0.0000;sleep,0.016;linear,0.1;zoomy,0);
+		Condition=GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:IsHumanPlayer(PLAYER_1);
+	};
+
+	LoadActor( "../ScreenEvaluation background/p2.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+247;y,SCREEN_CENTER_Y-55;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
+		OffCommand=cmd(zoomy,1;sleep,0.0000;sleep,0.016;linear,0.1;zoomy,0);
+		Condition=GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:IsHumanPlayer(PLAYER_2);
 	};
 
 	LoadActor( "../Common ScreenStages/bottom_stage" )..{
