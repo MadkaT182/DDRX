@@ -207,6 +207,9 @@ local t = Def.ActorFrame {
 		OffCommand=cmd(linear,0.133;addy,-62);
 	};
 
+	LoadActor("../../Graphics/timerBG")..{
+	};
+
 	LoadActor( "screen_results" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-200;zoom,1;addy,-12;sleep,0.000;sleep,0.283;decelerate,0.066;addy,12;linear,0.016;zoom,1.083;decelerate,0.083;zoomy,0.7;zoom,1);
 		OffCommand=cmd(sleep,0.0000;linear,0.1;addy,-50);
