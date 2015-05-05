@@ -37,21 +37,6 @@ end
 
 local t = LoadFallbackB();
 
-if ShowStandardDecoration("StepsDisplay") then
-	for pn in ivalues(PlayerNumber) do
-		local t2 = Def.StepsDisplay {
-			InitCommand=cmd(Load,"StepsDisplayEvaluation",pn;SetFromGameState,pn;);
-			UpdateNetEvalStatsMessageCommand=function(self,param)
-				if GAMESTATE:IsPlayerEnabled(pn) then
-					self:SetFromSteps(param.Steps)
-				end;
-			end;
-		};
-		t[#t+1] = StandardDecorationFromTable( "StepsDisplay" .. ToEnumShortString(pn), t2 );
-		t[#t+1] = StandardDecorationFromTable( "PercentScore" .. ToEnumShortString(pn), PercentScore(pn) );
-	end
-end
-
 for pn in ivalues(PlayerNumber) do
 	local MetricsName = "PersonalRecord" .. PlayerNumberToString(pn);
 	t[#t+1] = LoadActor( THEME:GetPathG(Var "LoadingScreen", "PersonalRecord"), pn ) .. {
