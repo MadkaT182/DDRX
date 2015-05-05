@@ -203,7 +203,7 @@ local t = Def.ActorFrame {
 	};
 
 	LoadActor( "../headerFrame" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+147;y,SCREEN_CENTER_Y-232;vertalign,top;horizalign,right;zoom,0;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
+		OnCommand=cmd(x,SCREEN_CENTER_X+147;y,SCREEN_TOP-16;vertalign,top;horizalign,right;zoom,0;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
 		OffCommand=cmd(linear,0.133;addy,-62);
 	};
 
