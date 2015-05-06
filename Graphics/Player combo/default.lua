@@ -39,17 +39,12 @@ local t = Def.ActorFrame {
 			Name="ComboLabel";
 			OnCommand = THEME:GetMetric("Combo", "ComboLabelOnCommand");
 		};
-		LoadActor("_misses")..{
-			Name="MissLabel";
-			OnCommand = THEME:GetMetric("Combo", "MissLabelOnCommand");
-		};
 	};
 	InitCommand = function(self)
 		c = self:GetChildren();
 		cf = c.ComboFrame:GetChildren();
 		cf.Number:visible(false);
 		cf.ComboLabel:visible(false)
-		cf.MissLabel:visible(false)
 	end;
 	-- Milestones:
 	-- 25,50,100,250,600 Multiples;
@@ -84,12 +79,10 @@ local t = Def.ActorFrame {
 		if not iCombo or iCombo < ShowComboAt then
 			cf.Number:visible(false);
 			cf.ComboLabel:visible(false)
-			cf.MissLabel:visible(false)
 			return;
 		end
 
 		cf.ComboLabel:visible(false)
-		cf.MissLabel:visible(false)
 
 		param.Zoom = scale( iCombo, 0, NumberMaxZoomAt, NumberMinZoom, NumberMaxZoom );
 		param.Zoom = clamp( param.Zoom, NumberMinZoom, NumberMaxZoom );
@@ -99,10 +92,8 @@ local t = Def.ActorFrame {
 
 		if param.Combo then
 			cf.ComboLabel:visible(true)
-			cf.MissLabel:visible(false)
 		else
 			cf.ComboLabel:visible(false)
-			--cf.MissLabel:visible(true)
 		end
 
 		cf.Number:visible(true);
@@ -139,8 +130,6 @@ local t = Def.ActorFrame {
 		Pulse( cf.Number, param );
 		if param.Combo then
 			PulseLabel( cf.ComboLabel, param );
-		else
-			PulseLabel( cf.MissLabel, param );
 		end
 		-- Milestone Logic
 	end;
