@@ -11,6 +11,10 @@ return Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X-171;y,SCREEN_CENTER_Y-236;addy,-62;sleep,0.366;accelerate,0.136;addy,62);
 	};
 
+	LoadActor( "../../Graphics/ScreenGameplay song info" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-42;draworder,40;zoom,1);
+	};
+
 	LoadActor( "../_black" )..{
 		OnCommand=cmd(diffusealpha,1;decelerate,0.25;diffusealpha,0);
 	};
