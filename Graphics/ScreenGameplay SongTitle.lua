@@ -13,7 +13,6 @@ return LoadFont("_shared2") .. {
 		self:settext( sText );
 		self:horizalign(left);
 		self:playcommand( "On" );
-		self:strokecolor(color("#000000"));
 		self:maxwidth(250);
 	end;
 };
