@@ -225,27 +225,27 @@ t[#t+1] = StandardDecorationFromFileOptional( "GrooveRadar", "GrooveRadar" );
 -- 			BackCullCommand=cmd(diffuse,color("0.5,0.5,0.5,1"));
 -- 		};	
 -- 	};
--- 	t[#t+1] = StandardDecorationFromFileOptional("NewSong","NewSong") .. {
--- 	-- 	ShowCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongShowCommand" );
--- 	-- 	HideCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongHideCommand" );
--- 		InitCommand=cmd(playcommand,"Set");
--- 		BeginCommand=cmd(playcommand,"Set");
--- 		CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
--- 		SetCommand=function(self)
--- 	-- 		local pTargetProfile;
--- 			local sSong;
--- 			-- Start!
--- 			if GAMESTATE:GetCurrentSong() then
--- 				if PROFILEMAN:IsSongNew(GAMESTATE:GetCurrentSong()) then
--- 					self:playcommand("Show");
--- 				else
--- 					self:playcommand("Hide");
--- 				end
--- 			else
--- 				self:playcommand("Hide");
--- 			end
--- 		end;
--- 	};
+	t[#t+1] = StandardDecorationFromFileOptional("NewSong","NewSong") .. {
+	-- 	ShowCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongShowCommand" );
+	-- 	HideCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongHideCommand" );
+		InitCommand=cmd(playcommand,"Set");
+		BeginCommand=cmd(playcommand,"Set");
+		CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
+		SetCommand=function(self)
+	-- 		local pTargetProfile;
+			local sSong;
+			-- Start!
+			if GAMESTATE:GetCurrentSong() then
+				if PROFILEMAN:IsSongNew(GAMESTATE:GetCurrentSong()) then
+					self:playcommand("Show");
+				else
+					self:playcommand("Hide");
+				end
+			else
+				self:playcommand("Hide");
+			end
+		end;
+	};
 -- 	t[#t+1] = StandardDecorationFromFileOptional("StageDisplay","StageDisplay");
 -- end;
 
