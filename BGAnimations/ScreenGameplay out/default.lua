@@ -13,7 +13,7 @@ t[#t+1] = Def.ActorFrame {
 	};
 
 	LoadActor( "../door2" )..{
-		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0;linear,0.8;addx,-320;sleep,1.75;sleep,3.4;linear,0.2;addx,99);
+		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0;linear,0.8;addx,-320;sleep,1.75;sleep,3.4;linear,0.2;addx,999);
 	};
 };
 

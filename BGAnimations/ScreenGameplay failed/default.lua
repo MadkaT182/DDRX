@@ -11,15 +11,15 @@ t[#t+1] = Def.ActorFrame {
 
     LoadActor("cage")..{
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-360;zoom,1.01);
-		OnCommand=cmd(zoomx,1.41;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;addy,-480;sleep,0.000;accelerate,0.316;addy,480;sleep,4;diffusealpha,1);
+		OnCommand=cmd(zoomx,1.41;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;addy,-480;sleep,0.000;accelerate,0.316;addy,999;sleep,4;diffusealpha,1);
 	};
 
 	LoadActor( "../door1" )..{
-		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X-214;y,SCREEN_CENTER_Y;addx,-320;sleep,0.000;sleep,0.316;linear,0.2;addx,320;sleep,1.167;sleep,3.383;linear,0.2;addx,-320);
+		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X-214;y,SCREEN_CENTER_Y;addx,-320;sleep,0.000;sleep,0.316;linear,0.2;addx,320;sleep,1.167;sleep,3.383;linear,0.2;addx,-999);
 	};
 
 	LoadActor( "../door2" )..{
-		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0.316;linear,0.2;addx,-320;sleep,1.167;sleep,3.383;linear,0.2;addx,320);
+		OnCommand=cmd(zoomx,1.34;x,SCREEN_CENTER_X+214;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0.316;linear,0.2;addx,-320;sleep,1.167;sleep,3.383;linear,0.2;addx,999);
 	};
 };
 
