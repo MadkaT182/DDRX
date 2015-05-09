@@ -1,14 +1,6 @@
 local t = Def.ActorFrame{};
 
 t[#t+1] = Def.ActorFrame {
-	OnCommand=function(self)
-		if GAMESTATE:IsExtraStage() then
-			self:diffuse(color("#ff5aec"));
-		elseif GAMESTATE:IsExtraStage2() then
-			self:diffuse(color("#ff5a63"));
-		end;
-	end;
-
     LoadActor("../failed.mp3") .. {
 		StartTransitioningCommand=cmd(play);
 	};

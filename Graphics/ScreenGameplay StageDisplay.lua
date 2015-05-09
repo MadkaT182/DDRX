@@ -3,7 +3,6 @@ local curStageIndex = GAMESTATE:GetCurrentStageIndex() + 1;
 local playMode = GAMESTATE:GetPlayMode();
 
 local t = Def.ActorFrame {
-	LoadActor(THEME:GetPathB("_frame","3x3"),"rounded black",64,16);
 	LoadFont("Common Normal") .. {
 		InitCommand=cmd(y,-1;shadowlength,1;playcommand,"Set");
 		CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
@@ -24,19 +23,17 @@ local t = Def.ActorFrame {
 				self:settextf("%i / %i", songsPlayed, GAMESTATE:GetCurrentCourse():GetEstimatedNumStages());
 			else
 				if GAMESTATE:IsEventMode() then
-					self:settextf("Stage %s", curStageIndex);
+					self:settextf("Stg %s", curStageIndex);
 				else
 					local thed_stage= thified_curstage_index(false)
 					if THEME:GetMetric(curScreen,"StageDisplayUseShortString") then
 						self:settextf(thed_stage)
 					else
-						self:settextf("%s Stage", thed_stage)
+						self:settextf("%s Stg", thed_stage)
 					end
 				end
 			end;
 			self:zoom(0.675);
-			self:diffuse(StageToColor(curStage));
-			self:diffusetopedge(ColorLightTone(StageToColor(curStage)));
 		end;
 	};
 };
