@@ -1,4 +1,4 @@
-return LoadFont("_shared2") .. {
+return LoadFont("_Russell14") .. {
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Refresh");
 	RefreshCommand=function(self)
 		local vSong = GAMESTATE:GetCurrentSong();
@@ -13,6 +13,6 @@ return LoadFont("_shared2") .. {
 		self:settext( sText );
 		self:horizalign(left);
 		self:playcommand( "On" );
-		self:maxwidth(250);
+		self:maxwidth(220);
 	end;
 };
