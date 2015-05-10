@@ -67,20 +67,16 @@ t[#t+1] = Def.ActorFrame {
 
 end
 
+-- t[#t+1] = LoadActor( "../Common ScreenStages/1.png" )..{
+-- 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;sleep,0.000;sleep,2.55;accelerate,0.3;rotationz,360;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
+-- 	OffCommand=cmd(linear,0.3;rotationz,-360;zoom,0;addy,60);
+-- 	--Condition=PlayModeName() == "Nonstop" or PlayModeName() == "Oni";
+-- };
 
---[[
-t[#t+1] = Def.ActorFrame {
-	LoadFont( "Adams" )..{
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;settext,GAMESTATE:GetCurrentStage());
-	};
-}
-
-t[#t+1] = Def.ActorFrame {
-	LoadFont( "Adams" )..{
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;settext,GAMESTATE:GetCurrentStageIndex());
-	};
-}
---]]
-
+-- t[#t+1] = LoadActor( "../Common ScreenStages/1.png" )..{
+-- 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;sleep,0.000;sleep,2.55;accelerate,0.3;rotationz,360;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
+-- 	OffCommand=cmd(linear,0.3;rotationz,-360;zoom,0;addy,60);
+-- 	--Condition=not IsCourseMode() and not IsFinalStage() and not IsExtraStage() and not IsExtraStage2() and StageIndex() == 0;
+-- };
 
 return t

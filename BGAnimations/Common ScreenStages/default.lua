@@ -1,10 +1,10 @@
 return Def.ActorFrame {
-	LoadActor( "../_shared background" )..{
-	};
+	-- LoadActor( "../_shared background" )..{
+	-- };
 
-	LoadActor( "../door1" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-151;y,SCREEN_CENTER_Y;addx,-320;linear,0.2;addx,320);
-	};
+	-- LoadActor( "../door1" )..{
+	-- 	OnCommand=cmd(x,SCREEN_CENTER_X-151;y,SCREEN_CENTER_Y;addx,-320;linear,0.2;addx,320);
+	-- };
 
 	-- LoadActor( "../door2" )..{
 	-- 	OnCommand=cmd(x,SCREEN_CENTER_X+151;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;linear,0.2;addx,-320);
