@@ -1,5 +1,10 @@
 return Def.ActorFrame {
 
+	LoadActor( "bgm" )..{
+		OnCommand=cmd(play);
+		OffCommand=cmd(stop);
+	};
+
 	LoadActor( "ddrx_logobg.png" )..{
 		OnCommand=cmd(Center;FullScreen;linear,0.75);
 	};
