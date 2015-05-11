@@ -152,7 +152,7 @@ local function CreateSegments(Player)
 						end
 					end
 					kids.Target:GetTexture():FinishRenderingTo();
-					
+
 					kids.Actual:SetTexture(kids.Target:GetTexture());
 					FirstPass=false;
 				end
@@ -164,53 +164,53 @@ local function CreateSegments(Player)
 	return t
 end
 local t = LoadFallbackB()
-t[#t+1] = StandardDecorationFromFileOptional("ScoreFrame","ScoreFrame");
+-- t[#t+1] = StandardDecorationFromFileOptional("ScoreFrame","ScoreFrame");
 
-local function songMeterScale(val) return scale(val,0,1,-380/2,380/2) end
+-- local function songMeterScale(val) return scale(val,0,1,-380/2,380/2) end
 
-for pn in ivalues(PlayerNumber) do
-	local MetricsName = "SongMeterDisplay" .. PlayerNumberToString(pn);
-	local songMeterDisplay = Def.ActorFrame{
-		InitCommand=function(self) 
-			self:player(pn); 
-			self:name(MetricsName); 
-			ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen"); 
-		end;
-		Def.Quad {
-			InitCommand=cmd(zoomto,420,20);
-			OnCommand=cmd(fadeleft,0.35;faderight,0.35;diffuse,Color.Black;diffusealpha,0.5);
-		};
- 		LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'frame ' .. PlayerNumberToString(pn) ) ) .. {
-			InitCommand=function(self)
-				self:name('Frame'); 
-				ActorUtil.LoadAllCommandsAndSetXY(self,MetricsName); 
-			end;
-		};
-		Def.Quad {
-			InitCommand=cmd(zoomto,2,8);
-			OnCommand=cmd(x,songMeterScale(0.25);diffuse,PlayerColor(pn);diffusealpha,0.5);
-		};
-		Def.Quad {
-			InitCommand=cmd(zoomto,2,8);
-			OnCommand=cmd(x,songMeterScale(0.5);diffuse,PlayerColor(pn);diffusealpha,0.5);
-		};
-		Def.Quad {
-			InitCommand=cmd(zoomto,2,8);
-			OnCommand=cmd(x,songMeterScale(0.75);diffuse,PlayerColor(pn);diffusealpha,0.5);
-		};
-		Def.SongMeterDisplay {
-			StreamWidth=THEME:GetMetric( MetricsName, 'StreamWidth' );
-			Stream=LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'stream ' .. PlayerNumberToString(pn) ) )..{
-				InitCommand=cmd(diffuse,PlayerColor(pn);diffusealpha,0.5;blend,Blend.Add;);
-			};
-			Tip=LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'tip ' .. PlayerNumberToString(pn) ) ) .. { InitCommand=cmd(visible,false); };
-		};
-	};
-	if ThemePrefs.Get("TimingDisplay") == true then
-		songMeterDisplay[#songMeterDisplay+1] = CreateSegments(pn);
-	end
-	t[#t+1] = songMeterDisplay
-end;
+-- for pn in ivalues(PlayerNumber) do
+-- 	local MetricsName = "SongMeterDisplay" .. PlayerNumberToString(pn);
+-- 	local songMeterDisplay = Def.ActorFrame{
+		-- InitCommand=function(self) 
+		-- 	self:player(pn); 
+		-- 	self:name(MetricsName); 
+		-- 	ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen"); 
+		-- end;
+		-- Def.Quad {
+		-- 	InitCommand=cmd(zoomto,420,20);
+		-- 	OnCommand=cmd(fadeleft,0.35;faderight,0.35;diffuse,Color.Black;diffusealpha,0.5);
+		-- };
+ 	-- 	LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'frame ' .. PlayerNumberToString(pn) ) ) .. {
+		-- 	InitCommand=function(self)
+		-- 		self:name('Frame'); 
+		-- 		ActorUtil.LoadAllCommandsAndSetXY(self,MetricsName); 
+		-- 	end;
+		-- };
+		-- Def.Quad {
+		-- 	InitCommand=cmd(zoomto,2,8);
+		-- 	OnCommand=cmd(x,songMeterScale(0.25);diffuse,PlayerColor(pn);diffusealpha,0.5);
+		-- };
+		-- Def.Quad {
+		-- 	InitCommand=cmd(zoomto,2,8);
+		-- 	OnCommand=cmd(x,songMeterScale(0.5);diffuse,PlayerColor(pn);diffusealpha,0.5);
+		-- };
+		-- Def.Quad {
+		-- 	InitCommand=cmd(zoomto,2,8);
+		-- 	OnCommand=cmd(x,songMeterScale(0.75);diffuse,PlayerColor(pn);diffusealpha,0.5);
+		-- };
+		-- Def.SongMeterDisplay {
+		-- 	StreamWidth=THEME:GetMetric( MetricsName, 'StreamWidth' );
+		-- 	Stream=LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'stream ' .. PlayerNumberToString(pn) ) )..{
+		-- 		InitCommand=cmd(diffuse,PlayerColor(pn);diffusealpha,0.5;blend,Blend.Add;);
+		-- 	};
+		-- 	Tip=LoadActor( THEME:GetPathG( 'SongMeterDisplay', 'tip ' .. PlayerNumberToString(pn) ) ) .. { InitCommand=cmd(visible,false); };
+		-- };
+-- 	};
+-- 	if ThemePrefs.Get("TimingDisplay") == true then
+-- 		songMeterDisplay[#songMeterDisplay+1] = CreateSegments(pn);
+-- 	end
+-- 	t[#t+1] = songMeterDisplay
+-- end;
 
 for pn in ivalues(PlayerNumber) do
 	local MetricsName = "ToastyDisplay" .. PlayerNumberToString(pn);
@@ -223,8 +223,7 @@ for pn in ivalues(PlayerNumber) do
 	};
 end;
 
-
-t[#t+1] = 	LoadActor( "../../Graphics/ScreenGameplay song info" )..{
+t[#t+1] = LoadActor( "../../Graphics/ScreenGameplay song info" )..{
 	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-42;zoom,1);
 };
 
