@@ -1,6 +1,14 @@
 return Def.ActorFrame {
-	LoadActor( "BGA" )..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomtowidth,SCREEN_WIDTH;zoomtoheight,SCREEN_HEIGHT);
+	LoadActor( "background" )..{
+		InitCommand=cmd(Center;FullScreen);
+	};
+
+	LoadActor( "right" )..{
+		InitCommand=cmd(x,SCREEN_RIGHT-61;y,SCREEN_CENTER_Y);
+	};
+
+	LoadActor( "left" )..{
+		InitCommand=cmd(x,SCREEN_LEFT+64;y,SCREEN_CENTER_Y);
 	};
 
 }
