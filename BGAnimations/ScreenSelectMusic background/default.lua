@@ -2,16 +2,6 @@ return Def.ActorFrame {
 	LoadActor( "../_shared background" )..{
 	};
 
-	LoadActor( "../../Graphics/_shared options header/header" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP;vertalign,top;zoomx, 1.34;addy,-24;linear,0.133;addy,24);
-		OffCommand=cmd(linear,0.133;addy,-56);
-	};
-
-	LoadActor( "../../Graphics/_shared options header/frame" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+289;y,SCREEN_TOP-14;vertalign,top;horizalign,right;zoom,0;sleep,0.283;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
-		OffCommand=cmd(linear,0.133;addy,-62);
-	};
-
 	LoadActor( "playerFrame_bg" )..{
 		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+93;addx,-294;rotationz,-90;sleep,0.2;linear,0.166;rotationz,0;addx,230;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
 		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-316);
@@ -130,11 +120,6 @@ return Def.ActorFrame {
 	LoadActor( "w15" )..{
 		OnCommand=cmd(x,SCREEN_RIGHT;y,SCREEN_CENTER_Y-199;sleep,0.595;sleep,0.322;diffusealpha,1);
 		OffCommand=cmd(sleep,0.016;accelerate,0.25;addx,380);
-	};
-
-	LoadActor( "../../Graphics/ScreenSelectMusic banner frame" )..{
-	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+100;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
-	OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-337);
 	};
 
 	-- LoadActor "../_modifiers/speed/x3"..{
