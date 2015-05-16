@@ -3,7 +3,7 @@ DDRX SM5 theme
 
 SM5 port of the DDRX theme original by TakuyaMAXX
 
-Thanks to Mad Matt, AJ 187, razorblade for the help.
+Thanks to Mad Matt, AJ 187, razorblade, Musashi, VR0, Inorizushi,  for the help.
 
 Original readme:
 
