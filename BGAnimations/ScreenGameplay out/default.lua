@@ -1,4 +1,5 @@
 local t = Def.ActorFrame {};
+
 t[#t+1] = Def.ActorFrame {
     LoadActor("../cleared.mp3") .. {
 		StartTransitioningCommand=cmd(play);

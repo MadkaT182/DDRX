@@ -41,6 +41,9 @@ t[#t+1] = Def.ActorFrame {
 
 }
 
+t[#t+1] = StandardDecorationFromFileOptional("ShockArrowDisplayP1","ShockArrowDisplayP1");
+t[#t+1] = StandardDecorationFromFileOptional("ShockArrowDisplayP2","ShockArrowDisplayP2");
+
 -- local t = LoadFallbackB();
 
 -- -- Legacy StepMania 4 Function
