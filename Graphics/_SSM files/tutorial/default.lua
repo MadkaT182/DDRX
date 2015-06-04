@@ -1,9 +1,9 @@
 return Def.ActorFrame {
 	LoadActor( "_img" )..{
-		OnCommand=cmd();
+		OnCommand=cmd(x,SCREEN_CENTER_X-196;y,SCREEN_CENTER_Y-104);
 	};
 
-	LoadActor( "_wheel" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-393;y,SCREEN_CENTER_Y-295;zoom,0;spin;effectmagnitude,0,0,-300;sleep,0.266;linear,0.15;zoom,1);
+	LoadActor( "_name" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-194;y,SCREEN_CENTER_Y-26);
 	};
 }
