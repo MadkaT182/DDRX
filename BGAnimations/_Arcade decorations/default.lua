@@ -3,6 +3,9 @@ t.InitCommand=function(self)
 	self:name("ArcadeOverlay")
 	ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen")
 end;
+
+if GAMESTATE:GetCoins() > 0 then
+
 t[#t+1] = Def.ActorFrame {
 
 	LoadActor( "../start_frame.png" )..{
@@ -18,4 +21,7 @@ t[#t+1] = Def.ActorFrame {
 	};
 
 };
+
+end
+
 return t
