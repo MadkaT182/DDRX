@@ -4,28 +4,18 @@ t.InitCommand=function(self)
 	ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen")
 end;
 t[#t+1] = Def.ActorFrame {
-	Name="ArcadeOverlay.Text";
-	InitCommand=function(self)
-		ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen")
-	end;
-	LoadActor(THEME:GetPathG("OptionRowExit","Frame")) .. {
-		InitCommand=cmd(diffuse,Color("Orange");diffusealpha,0.35);
+
+	LoadActor( "../start_frame.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-55;diffusealpha,0;rotationz,90;zoom,1.5;sleep,0.833;accelerate,0.15;rotationz,0;zoom,1;diffusealpha,1);
 	};
-	LoadFont("Common Normal") .. {
-		InitCommand=cmd(zoom,0.75;shadowlength,1;glowshift;strokecolor,Color("Outline");diffuse,Color("Orange");diffusetopedge,Color("Yellow");textglowmode,'TextGlowMode_Inner');
-		Text="...";
-		OnCommand=cmd(playcommand,"Refresh");
-		CoinInsertedMessageCommand=cmd(playcommand,"Refresh");
-		CoinModeChangedMessageCommand=cmd(playcommand,"Refresh");
-		RefreshCommand=function(self)
-			local bCanPlay = GAMESTATE:EnoughCreditsToJoin();
-			local bReady = GAMESTATE:GetNumSidesJoined() > 0;
-			if bCanPlay or bReady then
-				self:settext(THEME:GetString("ScreenTitleJoin","HelpTextJoin"));
-			else
-				self:settext(THEME:GetString("ScreenTitleJoin","HelpTextWait"));
-			end
-		end;
+
+	LoadActor( "../press_start1a.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-58;diffusealpha,0;rotationz,90;zoom,1.5;sleep,0.833;accelerate,0.15;rotationz,0;zoom,1;diffusealpha,1);
 	};
+
+	LoadActor( "../press_start1b.png" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-58;addy,999;sleep,1.316;addy,-999;diffuseshift;effectcolor1,1,1,1,0;effectcolor2,1,1,1,1;effectperiod,0.666);
+	};
+
 };
 return t
