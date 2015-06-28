@@ -41,7 +41,9 @@ function DDRCredits()
 
 	-- best final grade better than AA: show the credits.
 	-- otherwise, show music scroll.
-	return STATSMAN:GetBestFinalGrade() <= 'Grade_Tier03' and "ScreenCredits" or "ScreenMusicScroll"
+	--return STATSMAN:GetBestFinalGrade() <= 'Grade_Tier03' and "ScreenCredits" or "ScreenGameOver"
+	return Grade:Compare(STATSMAN:GetBestFinalGrade(), 'Grade_Tier03') <= 0 and "ScreenCredits" or "ScreenGameOver"
+
 end
 
 Branch = {
