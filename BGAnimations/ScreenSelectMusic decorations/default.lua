@@ -154,82 +154,12 @@ t[#t+1] = StandardDecorationFromFileOptional("ShockArrowDisplayP2","ShockArrowDi
 t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
 
 t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
-t[#t+1] = StandardDecorationFromFileOptional( "GrooveRadar", "GrooveRadar" );
 
 --t[#t+1] = StandardDecorationFromFileOptional("SegmentDisplay","SegmentDisplay");
 --[[ t[#t+1] = StandardDecorationFromFileOptional("NegativeDisplay","NegativeDisplay") .. {
 }; --]]
-
--- t[#t+1] = StandardDecorationFromFileOptional("SongTime","SongTime") .. {
--- 	SetCommand=function(self)
--- 		local curSelection = nil;
--- 		local length = 0.0;
--- 		if GAMESTATE:IsCourseMode() then
--- 			curSelection = GAMESTATE:GetCurrentCourse();
--- 			self:playcommand("Reset");
--- 			if curSelection then
--- 				local trail = GAMESTATE:GetCurrentTrail(GAMESTATE:GetMasterPlayerNumber());
--- 				if trail then
--- 					length = TrailUtil.GetTotalSeconds(trail);
--- 				else
--- 					length = 0.0;
--- 				end;
--- 			else
--- 				length = 0.0;
--- 			end;
--- 		else
--- 			curSelection = GAMESTATE:GetCurrentSong();
--- 			self:playcommand("Reset");
--- 			if curSelection then
--- 				length = curSelection:MusicLengthSeconds();
--- 				if curSelection:IsLong() then
--- 					self:playcommand("Long");
--- 				elseif curSelection:IsMarathon() then
--- 					self:playcommand("Marathon");
--- 				else
--- 					self:playcommand("Reset");
--- 				end
--- 			else
--- 				length = 0.0;
--- 				self:playcommand("Reset");
--- 			end;
--- 		end;
--- 		self:settext( SecondsToMSS(length) );
--- 	end;
--- 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
--- 	CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
--- 	CurrentTrailP1ChangedMessageCommand=cmd(playcommand,"Set");
--- 	CurrentTrailP2ChangedMessageCommand=cmd(playcommand,"Set");
--- }
-
--- if not GAMESTATE:IsCourseMode() then
--- 	local function CDTitleUpdate(self)
--- 		local song = GAMESTATE:GetCurrentSong();
--- 		local cdtitle = self:GetChild("CDTitle");
--- 		local height = cdtitle:GetHeight();
-		
--- 		if song then
--- 			if song:HasCDTitle() then
--- 				cdtitle:visible(true);
--- 				cdtitle:Load(song:GetCDTitlePath());
--- 			else
--- 				cdtitle:visible(false);
--- 			end;
--- 		else
--- 			cdtitle:visible(false);
--- 		end;
-		
--- 		self:zoom(scale(height,32,480,1,32/480))
--- 	end;
--- 	t[#t+1] = Def.ActorFrame {
--- 		OnCommand=cmd(draworder,105;x,SCREEN_CENTER_X-256;y,SCREEN_CENTER_Y-84;zoom,0;sleep,0.5;decelerate,0.25;zoom,1;SetUpdateFunction,CDTitleUpdate);
--- 		OffCommand=cmd(bouncebegin,0.15;zoomx,0);
--- 		Def.Sprite {
--- 			Name="CDTitle";
--- 			OnCommand=cmd(draworder,106;shadowlength,1;zoom,0.75;diffusealpha,1;zoom,0;bounceend,0.35;zoom,0.75;spin;effectperiod,2;effectmagnitude,0,180,0);
--- 			BackCullCommand=cmd(diffuse,color("0.5,0.5,0.5,1"));
--- 		};	
--- 	};
+if not GAMESTATE:IsCourseMode() then
+	t[#t+1] = StandardDecorationFromFileOptional( "GrooveRadar", "GrooveRadar" );
 	t[#t+1] = StandardDecorationFromFileOptional("NewSong","NewSong") .. {
 	-- 	ShowCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongShowCommand" );
 	-- 	HideCommand=THEME:GetMetric(Var "LoadingScreen", "NewSongHideCommand" );
@@ -251,86 +181,85 @@ t[#t+1] = StandardDecorationFromFileOptional( "GrooveRadar", "GrooveRadar" );
 			end
 		end;
 	};
+
  	t[#t+1] = StandardDecorationFromFileOptional("StageDisplay","StageDisplay");
--- end;
+end;
 
--- if GAMESTATE:IsCourseMode() then
--- 	t[#t+1] = Def.ActorFrame {
--- 		Def.Quad {
--- 			InitCommand=cmd(
--- 				x,THEME:GetMetric(Var "LoadingScreen","CourseContentsListX");
--- 				y,THEME:GetMetric(Var "LoadingScreen","CourseContentsListY") - 118;
--- 				zoomto,256+32,192;
--- 			);
--- 			OnCommand=cmd(diffuse,Color.Green;MaskSource);
--- 		};
--- 		Def.Quad {
--- 			InitCommand=cmd(
--- 				x,THEME:GetMetric(Var "LoadingScreen","CourseContentsListX");
--- 				y,THEME:GetMetric(Var "LoadingScreen","CourseContentsListY") + 186;
--- 				zoomto,256+32,64;
--- 			);
--- 			OnCommand=cmd(diffuse,Color.Blue;MaskSource);
--- 		};
--- 	};
--- 	t[#t+1] = StandardDecorationFromFileOptional("CourseContentsList","CourseContentsList");
--- 	t[#t+1] = StandardDecorationFromFileOptional("NumCourseSongs","NumCourseSongs")..{
--- 		InitCommand=cmd(horizalign,right);
--- 		SetCommand=function(self)
--- 			local curSelection= nil;
--- 			local sAppend = "";
--- 			if GAMESTATE:IsCourseMode() then
--- 				curSelection = GAMESTATE:GetCurrentCourse();
--- 				if curSelection then
--- 					sAppend = (curSelection:GetEstimatedNumStages() == 1) and "Stage" or "Stages";
--- 					self:visible(true);
--- 					self:settext( curSelection:GetEstimatedNumStages() .. " " .. sAppend);
--- 				else
--- 					self:visible(false);
--- 				end;
--- 			else
--- 				self:visible(false);
--- 			end;
--- 		end;
--- 		CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
--- 	};
--- end
+if GAMESTATE:IsCourseMode() then
+	t[#t+1] = Def.ActorFrame {
+		Def.Quad {
+			InitCommand=cmd(
+				x,THEME:GetMetric(Var "LoadingScreen","CourseContentsListX");
+				y,THEME:GetMetric(Var "LoadingScreen","CourseContentsListY") - 118;
+				zoomto,256+32,192;
+			);
+			OnCommand=cmd(diffuse,Color.Green;MaskSource);
+		};
+		Def.Quad {
+			InitCommand=cmd(
+				x,THEME:GetMetric(Var "LoadingScreen","CourseContentsListX");
+				y,THEME:GetMetric(Var "LoadingScreen","CourseContentsListY") + 186;
+				zoomto,256+32,64;
+			);
+			OnCommand=cmd(diffuse,Color.Blue;MaskSource);
+		};
+	};
+	t[#t+1] = StandardDecorationFromFileOptional("CourseContentsList","CourseContentsList");
+	t[#t+1] = StandardDecorationFromFileOptional("NumCourseSongs","NumCourseSongs")..{
+		InitCommand=cmd(horizalign,right);
+		SetCommand=function(self)
+			local curSelection= nil;
+			local sAppend = "";
+			if GAMESTATE:IsCourseMode() then
+				curSelection = GAMESTATE:GetCurrentCourse();
+				if curSelection then
+					sAppend = (curSelection:GetEstimatedNumStages() == 1) and "Stage" or "Stages";
+					self:visible(true);
+					self:settext( curSelection:GetEstimatedNumStages() .. " " .. sAppend);
+				else
+					self:visible(false);
+				end;
+			else
+				self:visible(false);
+			end;
+		end;
+		CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
+	};
+end
 
--- t[#t+1] = StandardDecorationFromFileOptional("DifficultyDisplay","DifficultyDisplay");
+t[#t+1] = StandardDecorationFromFileOptional("SortOrder","SortOrderText") .. {
+	BeginCommand=cmd(playcommand,"Set");
+	SortOrderChangedMessageCommand=cmd(playcommand,"Set");
+	SetCommand=function(self)
+		local s = GAMESTATE:GetSortOrder()
+		if s ~= nil then
+			local s = SortOrderToLocalizedString( s )
+			self:settext( s )
+			self:playcommand("Sort")
+		else
+			return
+		end
+	end;
+};
 
--- t[#t+1] = StandardDecorationFromFileOptional("SortOrder","SortOrderText") .. {
--- 	BeginCommand=cmd(playcommand,"Set");
--- 	SortOrderChangedMessageCommand=cmd(playcommand,"Set");
--- 	SetCommand=function(self)
--- 		local s = GAMESTATE:GetSortOrder()
--- 		if s ~= nil then
--- 			local s = SortOrderToLocalizedString( s )
--- 			self:settext( s )
--- 			self:playcommand("Sort")
--- 		else
--- 			return
--- 		end
--- 	end;
--- };
-
--- t[#t+1] = StandardDecorationFromFileOptional("SongOptionsFrame","SongOptionsFrame") .. {
--- 	ShowPressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameShowCommand");
--- 	ShowEnteringOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameEnterCommand");
--- 	HidePressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameHideCommand");
--- };
--- t[#t+1] = StandardDecorationFromFileOptional("SongOptions","SongOptionsText") .. {
--- 	ShowPressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsShowCommand");
--- 	ShowEnteringOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsEnterCommand");
--- 	HidePressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsHideCommand");
--- };
--- -- Sounds
--- t[#t+1] = Def.ActorFrame {
--- 	LoadActor(THEME:GetPathS("_switch","up")) .. {
--- 		SelectMenuOpenedMessageCommand=cmd(stop;play);
--- 	};
--- 	LoadActor(THEME:GetPathS("_switch","down")) .. {
--- 		SelectMenuClosedMessageCommand=cmd(stop;play);
--- 	};
--- };
+t[#t+1] = StandardDecorationFromFileOptional("SongOptionsFrame","SongOptionsFrame") .. {
+	ShowPressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameShowCommand");
+	ShowEnteringOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameEnterCommand");
+	HidePressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameHideCommand");
+};
+t[#t+1] = StandardDecorationFromFileOptional("SongOptions","SongOptionsText") .. {
+	ShowPressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsShowCommand");
+	ShowEnteringOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsEnterCommand");
+	HidePressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsHideCommand");
+};
+-- Sounds
+t[#t+1] = Def.ActorFrame {
+	LoadActor(THEME:GetPathS("_switch","up")) .. {
+		SelectMenuOpenedMessageCommand=cmd(stop;play);
+	};
+	LoadActor(THEME:GetPathS("_switch","down")) .. {
+		SelectMenuClosedMessageCommand=cmd(stop;play);
+	};
+};
 
 return t

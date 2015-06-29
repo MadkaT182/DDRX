@@ -11,14 +11,7 @@ return Def.ActorFrame {
 			self:playcommand("TweenOff");
 		end;
 	end;
-	Def.Quad {
-		InitCommand=cmd(y,-14;zoomto,164,2;fadeleft,8/164;faderight,8/164);
-		OnCommand=cmd(diffuse,Color("Black");diffusealpha,0;linear,0.35;diffusealpha,0.5);
-	};
-	Def.Quad {
-		InitCommand=cmd(y,24*(5)-10;zoomto,164,2;fadeleft,8/164;faderight,8/164);
-		OnCommand=cmd(diffuse,Color("Black");diffusealpha,0;linear,0.35;diffusealpha,0.5);
-	};
+
 	Def.StepsDisplayList {
 		Name="StepsDisplayListRow";
 
