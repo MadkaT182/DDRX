@@ -16,12 +16,12 @@ t[#t+1] = Def.ActorFrame {
 	};
 
 	LoadActor( "../../Graphics/ScreenSelectMusic banner frame" )..{
-	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+100;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
+	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+113;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
 	OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-337);
 	};
 
 	LoadActor( "gauge 4x3" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+321;y,SCREEN_TOP+97;diffusealpha,0;sleep,0.233;diffusealpha,1);
+		OnCommand=cmd(x,SCREEN_LEFT+321;y,SCREEN_TOP+110;diffusealpha,0;sleep,0.233;diffusealpha,1);
 		OffCommand=cmd(diffusealpha,0);
 	};
 
