@@ -12,9 +12,6 @@ t[#t+1] = Def.ActorFrame {
 		OffCommand=cmd(linear,0.133;addy,-62);
 	};
 
-	LoadActor("../../Graphics/timerBG")..{
-	};
-
 	LoadActor( "../../Graphics/ScreenSelectMusic banner frame" )..{
 	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+113;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
 	OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-337);
@@ -227,20 +224,12 @@ if GAMESTATE:IsCourseMode() then
 	};
 end
 
-t[#t+1] = StandardDecorationFromFileOptional("SortOrder","SortOrderText") .. {
-	BeginCommand=cmd(playcommand,"Set");
-	SortOrderChangedMessageCommand=cmd(playcommand,"Set");
-	SetCommand=function(self)
-		local s = GAMESTATE:GetSortOrder()
-		if s ~= nil then
-			local s = SortOrderToLocalizedString( s )
-			self:settext( s )
-			self:playcommand("Sort")
-		else
-			return
-		end
-	end;
-};
+t[#t+1] = StandardDecorationFromFile("SortDisplay","SortDisplay");
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor("../../Graphics/timerBG")..{
+	};
+}
 
 t[#t+1] = StandardDecorationFromFileOptional("SongOptionsFrame","SongOptionsFrame") .. {
 	ShowPressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsFrameShowCommand");
