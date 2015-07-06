@@ -11,11 +11,11 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 			return
 		end
 
-		if SongOrCourse:HasBanner() then
-			self:visible(false);
-		else
-			self:visible(true);
-		end
+		-- if SongOrCourse:HasBanner() then
+		-- 	self:visible(false);
+		-- else
+		-- 	self:visible(true);
+		-- end
 	end;
 };
 

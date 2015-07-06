@@ -42,11 +42,11 @@ for i=1,#statList do
 			InitCommand=cmd(x,128;y,40;horizalign,right;vertalign,bottom);
 			OnCommand=cmd(zoomto,80,18;diffuse,Color.Black;diffusealpha,0.5;fadeleft,0.5);
 		};
-		LoadFont("Common Normal") .. {
-			Text=FormatNumberAndSuffix(statList[j]:GetStageIndex()+1);
-			InitCommand=cmd(x,128-4;y,40-4;horizalign,right;vertalign,bottom);
-			OnCommand=cmd(diffuse,StageToColor(statList[j]:GetStage());zoom,0.675;shadowlength,1);
-		};
+		-- LoadFont("Common Normal") .. {
+		-- 	Text=FormatNumberAndSuffix(statList[j]:GetStageIndex()+1);
+		-- 	InitCommand=cmd(x,128-4;y,40-4;horizalign,right;vertalign,bottom);
+		-- 	OnCommand=cmd(diffuse,StageToColor(statList[j]:GetStage());zoom,0.675;shadowlength,1);
+		-- };
 	};
 end
 
