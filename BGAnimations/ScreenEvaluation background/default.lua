@@ -197,12 +197,6 @@ local t = Def.ActorFrame {
 		Condition=( GAMESTATE:IsCourseMode() or GAMESTATE:GetPlayMode() == 'PlayMode_Endless' ) and GAMESTATE:IsPlayerEnabled(PLAYER_2) == true;
 	};
 
-
-	LoadActor( "../banner frame" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-129;zoomy,0;sleep,0.000;sleep,0.333;decelerate,0.133;zoomy,1;accelerate,0.033;zoomx,1.06;decelerate,0.033;zoomx,1);
-		OffCommand=cmd(sleep,0.0000;sleep,0.333;decelerate,0.066;zoomx,1.05;zoomy,0);
-	};
-
 	LoadActor( "../headerFrame" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X+147;y,SCREEN_TOP-16;vertalign,top;horizalign,right;zoom,0;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
 		OffCommand=cmd(linear,0.133;addy,-62);
@@ -238,6 +232,11 @@ local t = Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X-37;y,SCREEN_CENTER_Y-219;addy,-8;zoom,1.084;sleep,0.000;sleep,0.3;linear,0.05;addy,8;zoom,1.042;linear,0.05;zoom,1);
 		OffCommand=cmd(sleep,0.0000;linear,0.1;addy,-34);
 		Condition=GAMESTATE:GetPlayMode() == 'PlayMode_Endless';
+	};
+
+	LoadActor( "../banner frame" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-129;zoomy,0;sleep,0.000;sleep,0.333;decelerate,0.133;zoomy,1;accelerate,0.033;zoomx,1.06;decelerate,0.033;zoomx,1);
+		OffCommand=cmd(sleep,0.0000;sleep,0.333;decelerate,0.066;zoomx,1.05;zoomy,0);
 	};
 
 	LoadActor( "p1.png" )..{
