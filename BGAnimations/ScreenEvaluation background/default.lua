@@ -246,7 +246,7 @@ local t = Def.ActorFrame {
 	};
 
 	LoadActor( "p2.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+247;y,SCREEN_CENTER_Y-55;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
+		OnCommand=cmd(x,SCREEN_CENTER_X+234;y,SCREEN_CENTER_Y-47;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
 		OffCommand=cmd(zoomy,1;sleep,0.0000;sleep,0.016;linear,0.1;zoomy,0);
 		Condition=GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:IsHumanPlayer(PLAYER_2);
 	};
