@@ -240,7 +240,7 @@ local t = Def.ActorFrame {
 	};
 
 	LoadActor( "p1.png" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-248;y,SCREEN_CENTER_Y-55;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
+		OnCommand=cmd(x,SCREEN_CENTER_X-234;y,SCREEN_CENTER_Y-47;zoomy,0;sleep,0.000;sleep,0.216;linear,0.1;zoomy,1);
 		OffCommand=cmd(zoomy,1;sleep,0.0000;sleep,0.016;linear,0.1;zoomy,0);
 		Condition=GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:IsHumanPlayer(PLAYER_1);
 	};
@@ -525,7 +525,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 t[#t+1] = Def.ActorFrame {
 
 	LoadActor( "ScoreandDifficultyFrame" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+215;y,SCREEN_BOTTOM-107);
+		OnCommand=cmd(x,SCREEN_CENTER_X-224;y,SCREEN_BOTTOM-109);
 		OffCommand=cmd(diffusealpha,0);
 	};
 }
@@ -536,7 +536,7 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 t[#t+1] = Def.ActorFrame {
 
 	LoadActor( "ScoreandDifficultyFrame" )..{
-		OnCommand=cmd(rotationy,180;x,SCREEN_RIGHT-215;y,SCREEN_BOTTOM-107);
+		OnCommand=cmd(rotationy,180;x,SCREEN_CENTER_X+224;y,SCREEN_BOTTOM-109);
 		OffCommand=cmd(diffusealpha,0);
 	};
 }
