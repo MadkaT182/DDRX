@@ -7,7 +7,7 @@ local t = Def.ActorFrame{
 		BeginCommand=function(self)
 			-- check network status
 			if netConnected then
-				self:strokecolor(color("#000000"));
+				self:strokecolor(color("#00ffff"));
 				self:settext( Screen.String("Network OK") );
 				self:horizalign(right);
 			else

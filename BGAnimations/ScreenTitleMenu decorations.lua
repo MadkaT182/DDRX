@@ -14,7 +14,6 @@ t[#t+1] = Def.ActorFrame {
 };
 
 t[#t+1] = StandardDecorationFromFileOptional("Footer","Footer");
-t[#t+1] = StandardDecorationFromFileOptional("NetworkStatus","NetworkStatus");
 t[#t+1] = StandardDecorationFromFileOptional("SystemDirection","SystemDirection");
 
 return t
