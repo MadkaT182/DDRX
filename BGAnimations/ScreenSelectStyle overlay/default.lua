@@ -10,6 +10,6 @@ return Def.ActorFrame {
 		OffCommand=cmd(linear,0.05;addx,-999;diffusealpha,0);
 	};
 
-	LoadActor( "../../Graphics/ScreenSelectMusic footer" )..{
+	LoadActor( "../../Graphics/ScreenSelectStyle footer" )..{
 	};
 }
