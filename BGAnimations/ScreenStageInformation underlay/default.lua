@@ -104,21 +104,21 @@ t[#t+1] =Def.ActorFrame{
 
 };
 
--- if GAMESTATE:IsCourseMode() then
--- 	t[#t+1] = LoadActor("CourseDisplay");
--- else
--- 	t[#t+1] = Def.Quad {
--- 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106;zoomto,254,78;diffuse,Color("Black"));
--- 		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78);
--- 	};
+if GAMESTATE:IsCourseMode() then
+	t[#t+1] = LoadActor("CourseDisplay");
+else
+	t[#t+1] = Def.Quad {
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106;zoomto,254,78;diffuse,Color("Black"));
+		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78);
+	};
 
--- 	t[#t+1] = Def.Sprite {
--- 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106);
--- 		BeginCommand=cmd(LoadFromCurrentSongBanner);
--- 		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78;linear,0.2;diffusealpha,1);
--- 		OffCommand=cmd(linear,0.2;zoomy,0);
--- 	};
--- end;
+	t[#t+1] = Def.Sprite {
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106);
+		BeginCommand=cmd(LoadFromCurrentSongBanner);
+		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78;linear,0.2;diffusealpha,1);
+		OffCommand=cmd(linear,0.2;zoomy,0);
+	};
+end;
 
 local songtitl = GAMESTATE:GetCurrentSong():GetTranslitMainTitle()
 
