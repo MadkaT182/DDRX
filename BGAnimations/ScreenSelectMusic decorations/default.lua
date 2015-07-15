@@ -11,6 +11,27 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_LEFT+289;y,SCREEN_TOP-14;vertalign,top;horizalign,right;zoom,0;sleep,0.283;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
 		OffCommand=cmd(linear,0.133;addy,-62);
 	};
+}
+
+if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "screen_music" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+149;y,SCREEN_TOP+32;rotationz,-4;diffusealpha,0;zoom,1.06;sleep,0.283;decelerate,0.083;diffusealpha,1;decelerate,0.083;zoom,1);
+			OffCommand=cmd(linear,0.05;addx,-35;diffusealpha,0);
+		};
+	}
+end
+
+if GAMESTATE:GetPlayMode() == 'PlayMode_Nonstop' or GAMESTATE:GetPlayMode() == 'PlayMode_Endless' or GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "screen_course" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+149;y,SCREEN_TOP+32;rotationz,-4;diffusealpha,0;zoom,1.06;sleep,0.283;decelerate,0.083;diffusealpha,1;decelerate,0.083;zoom,1);
+			OffCommand=cmd(linear,0.05;addx,-35;diffusealpha,0);
+		};
+	}
+end
+
+t[#t+1] = Def.ActorFrame {
 
 	LoadActor( "../../Graphics/ScreenSelectMusic banner frame" )..{
 	OnCommand=cmd(x,SCREEN_LEFT+163;y,SCREEN_TOP+113;addx,-337;sleep,0.2;decelerate,0.233;addx,348;linear,0.066;addx,-11);
