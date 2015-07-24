@@ -12,61 +12,65 @@ t[#t+1] = Def.ActorFrame {
 	};
 }
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "difficulty_bg" )..{
-		OnCommand=cmd(x,SCREEN_LEFT-116;y,SCREEN_CENTER_Y+135;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
-		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-350);
-	};
-}
+if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' then
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "stream" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+149;y,SCREEN_CENTER_Y-53;rotationz,360;sleep,0.632;sleep,0.2;linear,0.166;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "difficulty_bg" )..{
+			OnCommand=cmd(x,SCREEN_LEFT-116;y,SCREEN_CENTER_Y+135;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
+			OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-350);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "voltage" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+56;y,SCREEN_CENTER_Y-6;rotationz,360;sleep,0.632;sleep,0.1;linear,0.166;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "stream" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+149;y,SCREEN_CENTER_Y-53;rotationz,360;sleep,0.632;sleep,0.2;linear,0.166;rotationz,0;diffusealpha,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "air" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+90;y,SCREEN_CENTER_Y+50;rotationz,360;sleep,0.632;linear,0.166;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "voltage" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+56;y,SCREEN_CENTER_Y-6;rotationz,360;sleep,0.632;sleep,0.1;linear,0.166;rotationz,0;diffusealpha,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "freeze" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+223;y,SCREEN_CENTER_Y+50;rotationz,360;sleep,0.632;sleep,0.4;linear,0.166;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "air" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+90;y,SCREEN_CENTER_Y+50;rotationz,360;sleep,0.632;linear,0.166;rotationz,0;diffusealpha,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "chaos" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+235;y,SCREEN_CENTER_Y-6;rotationz,360;sleep,0.632;sleep,0.3;linear,0.166;rotationz,0;diffusealpha,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "freeze" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+223;y,SCREEN_CENTER_Y+50;rotationz,360;sleep,0.632;sleep,0.4;linear,0.166;rotationz,0;diffusealpha,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "radar.png" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+6;zoomy,0;sleep,0.466;accelerate,0.05;zoomy,1.30;linear,0.033;zoomy,1;accelerate,0.05;zoomx,1.30;linear,0.033;zoomx,1);
-		OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "chaos" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+235;y,SCREEN_CENTER_Y-6;rotationz,360;sleep,0.632;sleep,0.3;linear,0.166;rotationz,0;diffusealpha,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "radar_glow" )..{
-		OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+3;diffuseshift;effectcolor1,color("1,1,1,1");effectcolor2,color("1,1,1,0.4");effectperiod,1.33;addx,-999;sleep,1.283;addx,999);
-		OffCommand=cmd(sleep,0.233;stopeffect;linear,0.05;diffusealpha,0);
-	};
-}
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "radar.png" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+6;zoomy,0;sleep,0.466;accelerate,0.05;zoomy,1.30;linear,0.033;zoomy,1;accelerate,0.05;zoomx,1.30;linear,0.033;zoomx,1);
+			OffCommand=cmd(sleep,0.233;linear,0.05;diffusealpha,0);
+		};
+	}
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "radar_glow" )..{
+			OnCommand=cmd(x,SCREEN_LEFT+150;y,SCREEN_CENTER_Y+3;diffuseshift;effectcolor1,color("1,1,1,1");effectcolor2,color("1,1,1,0.4");effectperiod,1.33;addx,-999;sleep,1.283;addx,999);
+			OffCommand=cmd(sleep,0.233;stopeffect;linear,0.05;diffusealpha,0);
+		};
+	}
+
+end
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "w01" )..{
