@@ -16,7 +16,7 @@ if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' or GAMESTATE:GetPlayMode() == '
 
 	t[#t+1] = Def.ActorFrame {
 		LoadActor( "difficulty_bg" )..{
-			OnCommand=cmd(x,SCREEN_LEFT-116;y,SCREEN_CENTER_Y+135;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
+			OnCommand=cmd(x,SCREEN_LEFT-136;y,SCREEN_CENTER_Y+135;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
 			OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-350);
 		};
 	}
