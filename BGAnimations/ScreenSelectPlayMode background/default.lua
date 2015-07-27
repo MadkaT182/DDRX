@@ -4,12 +4,12 @@ return Def.ActorFrame {
 
 	LoadActor( "../Common ScreenStages/top_stage" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+12;zoomx,1.34;addy,-56;linear,0.133;addy,56);
-		OffCommand=cmd(linear,0.133;addy,-56);
+		OffCommand=cmd(linear,0.133;addy,-999);
 	};
 
 	LoadActor( "../../Graphics/_shared options header/frame" )..{
 		OnCommand=cmd(x,SCREEN_LEFT+289;y,SCREEN_TOP-14;vertalign,top;horizalign,right;zoom,0;sleep,0.283;linear,0.233;zoom,1.05;linear,0.066;zoom,1);
-		OffCommand=cmd(linear,0.133;addy,-62);
+		OffCommand=cmd(linear,0.133;addy,-999);
 	};
 
 	LoadActor( "screen_name" )..{
