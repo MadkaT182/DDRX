@@ -10,6 +10,18 @@ t[#t+1] = LoadActor( "../../Graphics/ScreenGameplay song info" )..{
 	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-42;zoom,1);
 };
 
+--Rave Level images
+if GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
+	--P1 Side
+	t[#t+1] = LoadActor( "RaveLevel" )..{
+		InitCommand=cmd(x,SCREEN_LEFT+88;y,SCREEN_BOTTOM-38);
+	};
+	--P2 Side
+	t[#t+1] = LoadActor( "RaveLevel" )..{
+		InitCommand=cmd(x,SCREEN_RIGHT-102;y,SCREEN_BOTTOM-38);
+	};
+end
+
 t[#t+1] = StandardDecorationFromFileOptional("StageFrame","StageFrame");
 t[#t+1] = StandardDecorationFromFileOptional("StageDisplay","StageDisplay");
 t[#t+1] = StandardDecorationFromFileOptional("SongTitle","SongTitle");
