@@ -10,4 +10,6 @@ return Def.ActorFrame {
 		InitCommand=cmd(y,-16;shadowlength,2;Center);
 	};
 
+	SOUND:PlayAnnouncer("game over")
+
 }
