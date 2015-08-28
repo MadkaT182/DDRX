@@ -169,7 +169,11 @@ t[#t+1] = StandardDecorationFromFileOptional("ShockArrowDisplayP2","ShockArrowDi
 -- 	end;
 -- end
 
-t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
+--t[#t+1] = StandardDecorationFromFileOptional("DifficultyList","DifficultyList");
+
+--Cursor
+t[#t+1] = StandardDecorationFromFileOptional("StepsDisplayList","StepsDisplayList");
+--Cursor
 
 t[#t+1] = StandardDecorationFromFileOptional("BPMDisplay","BPMDisplay");
 
