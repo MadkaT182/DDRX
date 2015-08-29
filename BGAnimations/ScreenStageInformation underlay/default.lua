@@ -3,23 +3,23 @@ local playMode = GAMESTATE:GetPlayMode()
 if playMode ~= 'PlayMode_Regular' and playMode ~= 'PlayMode_Rave' and playMode ~= 'PlayMode_Battle' then
 curStage = playMode;
 end;
-local sStage = GAMESTATE:GetCurrentStage();
-local tRemap = {
-Stage_1st = 1,
-Stage_2nd = 2,
-Stage_3rd = 3,
-Stage_4th = 4,
-Stage_5th = 5,
-Stage_6th = 6,
-};
+-- local sStage = GAMESTATE:GetCurrentStage();
+-- local tRemap = {
+-- Stage_1st = 1,
+-- Stage_2nd = 2,
+-- Stage_3rd = 3,
+-- Stage_4th = 4,
+-- Stage_5th = 5,
+-- Stage_6th = 6,
+-- };
 
-local stageGraphicToLoad = GAMESTATE:GetCurrentStageIndex() + 1
+-- local stageGraphicToLoad = GAMESTATE:GetCurrentStageIndex() + 1
 
-if tRemap[sStage] == PREFSMAN:GetPreference("SongsPerPlay") then
-sStage = "Stage_Final";
-else
-sStage = sStage;
-end;
+-- if tRemap[sStage] == PREFSMAN:GetPreference("SongsPerPlay") then
+-- sStage = "Stage_Final";
+-- else
+-- sStage = sStage;
+-- end;
 
 
 local t = Def.ActorFrame {};
@@ -107,16 +107,24 @@ t[#t+1] =Def.ActorFrame{
 if GAMESTATE:IsCourseMode() then
 	t[#t+1] = LoadActor("CourseDisplay");
 else
-	t[#t+1] = Def.Quad {
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106;zoomto,254,78;diffuse,Color("Black"));
-		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78);
-	};
-
-	t[#t+1] = Def.Sprite {
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+106);
-		BeginCommand=cmd(LoadFromCurrentSongBanner);
-		OnCommand=cmd(diffusealpha,0;scaletoclipped,254,78;linear,0.2;diffusealpha,1);
-		OffCommand=cmd(linear,0.2;zoomy,0);
+	t[#t+1] = Def.ActorFrame {
+	 	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-134;diffusealpha,0;sleep,1.865;diffusealpha,1;draworder,100);
+		Def.Sprite {
+			OnCommand=function(self)
+				local song = GAMESTATE:GetCurrentSong();
+					if song then
+						if song:HasBanner() then
+							self:diffusealpha(1);
+							self:LoadFromSongBanner(GAMESTATE:GetCurrentSong());
+							self:setsize(256,80);
+						else
+							self:Load(THEME:GetPathG("","Common fallback banner"));
+						end;
+					else
+						self:diffusealpha(0);
+				end;
+			end;
+		};
 	};
 end;
 
