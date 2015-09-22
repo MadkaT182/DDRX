@@ -212,6 +212,27 @@ local t = LoadFallbackB()
 -- 	t[#t+1] = songMeterDisplay
 -- end;
 
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
+		InitCommand=cmd(player,PLAYER_1;x,SCREEN_LEFT+102;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			if GAMESTATE:PlayerIsUsingModifier(PLAYER_1,'reverse') then
+				self:y(SCREEN_CENTER_Y-181);
+			else
+				self:y(SCREEN_CENTER_Y+169);
+			end;
+		end;
+	};
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P2") ) .. {
+		InitCommand=cmd(player,PLAYER_2;x,SCREEN_RIGHT-84;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			if GAMESTATE:PlayerIsUsingModifier(PLAYER_2,'reverse') then
+				self:y(SCREEN_CENTER_Y-181);
+			else
+				self:y(SCREEN_CENTER_Y+169);
+			end;
+		end;
+	};
+
 for pn in ivalues(PlayerNumber) do
 	local MetricsName = "ToastyDisplay" .. PlayerNumberToString(pn);
 	t[#t+1] = LoadActor( THEME:GetPathG("Player", 'toasty'), pn ) .. {
