@@ -105,4 +105,17 @@ elseif GAMESTATE:IsExtraStage2() then
 	};
 end;
 
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
+		InitCommand=cmd(player,PLAYER_1;x,SCREEN_LEFT+109;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+201);
+		end;
+	};
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P2") ) .. {
+		InitCommand=cmd(player,PLAYER_2;x,SCREEN_RIGHT-91;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+201);
+		end;
+	};
+
 return t
