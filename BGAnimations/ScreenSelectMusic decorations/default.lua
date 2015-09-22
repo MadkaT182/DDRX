@@ -266,6 +266,20 @@ t[#t+1] = StandardDecorationFromFileOptional("SongOptions","SongOptionsText") ..
 	ShowEnteringOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsEnterCommand");
 	HidePressStartForOptionsCommand=THEME:GetMetric(Var "LoadingScreen","SongOptionsHideCommand");
 };
+
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
+		InitCommand=cmd(player,PLAYER_1;x,SCREEN_LEFT+108;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+203);
+		end;
+	};
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P2") ) .. {
+		InitCommand=cmd(player,PLAYER_2;x,SCREEN_LEFT+286;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+203);
+		end;
+	};
+
 -- Sounds
 t[#t+1] = Def.ActorFrame {
 	LoadActor(THEME:GetPathS("_switch","up")) .. {
