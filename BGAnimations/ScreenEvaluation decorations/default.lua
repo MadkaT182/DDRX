@@ -10,13 +10,20 @@ t[#t+1] = StandardDecorationFromFileOptional("SongInformation","SongInformation"
 		else
 			return
 		end
-
-		-- if SongOrCourse:HasBanner() then
-		-- 	self:visible(false);
-		-- else
-		-- 	self:visible(true);
-		-- end
 	end;
 };
+
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
+		InitCommand=cmd(player,PLAYER_1;x,SCREEN_LEFT+109;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+201);
+		end;
+	};
+t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P2") ) .. {
+		InitCommand=cmd(player,PLAYER_2;x,SCREEN_LEFT+284;y,SCREEN_CENTER_Y;draworder,1);
+		OnCommand=function(self)
+			self:y(SCREEN_CENTER_Y+201);
+		end;
+	};
 
 return t
