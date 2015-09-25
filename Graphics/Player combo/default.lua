@@ -63,12 +63,13 @@ local t = Def.ActorFrame {
 		end;
 	end;
 	--]]
-	--[[
+
 	ToastyAchievedMessageCommand=function(self,params)
 		if params.PlayerNumber == player then
 			(cmd(thump,2;effectclock,'beat'))(c.ComboFrame);
 		end;
 	end;
+	--[[
 	ToastyDroppedMessageCommand=function(self,params)
 		if params.PlayerNumber == player then
 			(cmd(stopeffect))(c.ComboFrame);
