@@ -4,7 +4,7 @@ LoadActor("../failed") .. {
 StartTransitioningCommand=cmd(play);
 };
 
-LoadActor( "../_shared background" )..{
+LoadActor( "../_shared_background" )..{
 	OnCommand=cmd(diffusealpha,0;sleep,3;diffusealpha,1);
 };
 
