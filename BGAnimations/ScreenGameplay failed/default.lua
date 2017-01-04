@@ -4,17 +4,21 @@ LoadActor("../failed") .. {
 StartTransitioningCommand=cmd(play);
 };
 
+LoadActor( "../_shared background" )..{
+	OnCommand=cmd(diffusealpha,0;sleep,3;diffusealpha,1);
+};
+
 LoadActor("cage")..{
 OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;addy,-480;sleep,0.000;accelerate,0.316;addy,480;sleep,3;diffusealpha,0);
 };
 
--- LoadActor("../door1")..{
--- OnCommand=cmd(x,SCREEN_CENTER_X-160;y,SCREEN_CENTER_Y;addx,-320;sleep,0.000;sleep,0.316;linear,0.2;addx,320;sleep,1.167;sleep,3.383;linear,0.2;addx,-320);
--- };
+LoadActor("../door1")..{
+OnCommand=cmd(x,SCREEN_CENTER_X-SCREEN_WIDTH/4;y,SCREEN_CENTER_Y;addx,-SCREEN_WIDTH/2;sleep,0.000;sleep,0.316;linear,0.2;addx,SCREEN_WIDTH/2;sleep,1.167;sleep,3.383;linear,0.2;addx,-SCREEN_WIDTH/2);
+};
 
--- LoadActor("../door2")..{
--- OnCommand=cmd(x,SCREEN_CENTER_X+160;y,SCREEN_CENTER_Y;addx,320;sleep,0.000;sleep,0.316;linear,0.2;addx,-320;sleep,1.167;sleep,3.383;linear,0.2;addx,320);
--- };
+LoadActor("../door2")..{
+OnCommand=cmd(x,SCREEN_CENTER_X+SCREEN_WIDTH/4;y,SCREEN_CENTER_Y;addx,SCREEN_WIDTH/2;sleep,0.000;sleep,0.316;linear,0.2;addx,-SCREEN_WIDTH/2;sleep,1.167;sleep,3.383;linear,0.2;addx,SCREEN_WIDTH/2);
+};
 
 LoadActor("../ScreenGameplay Cleared/s01")..{
 OnCommand=cmd(x,SCREEN_CENTER_X+188;y,SCREEN_CENTER_Y-115;diffusealpha,0;sleep,0.000;sleep,0.766;diffusealpha,1;sleep,4.3;linear,0.05;diffusealpha,0);

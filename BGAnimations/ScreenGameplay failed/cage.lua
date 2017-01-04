@@ -1,14 +1,13 @@
 local t = Def.ActorFrame {};
+local file = "basen";
 
 if IsUsingWideScreen() == true then
-	t[#t+1] = LoadActor("basew")..{
-		OnCommand=cmd(addy,225);
-	};
-else
-	t[#t+1] = LoadActor("basen")..{
-		OnCommand=cmd(addy,225);
-	};
+	file = "basew";
 end
+
+t[#t+1] = LoadActor(file)..{
+	OnCommand=cmd(addy,225);
+};
 
 t[#t+1] = LoadActor("cgbg")..{};
 
