@@ -15,7 +15,7 @@ else
 end;
 
 t[#t+1] = LoadActor("../_gpstg")..{
-	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+6);
+	OnCommand=cmd(x,SCREEN_CENTER_X+8;y,SCREEN_TOP+6);
 };
 
 return t;

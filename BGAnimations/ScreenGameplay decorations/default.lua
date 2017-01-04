@@ -1,7 +1,7 @@
 local t = Def.ActorFrame {};
 
 t[#t+1] = LoadActor("../_stageFrame")..{
-	OnCommand=cmd(y,SCREEN_TOP+28,addx,2);
+	OnCommand=cmd(y,SCREEN_TOP+24,addx,2);
 };
 
 t[#t+1] = LoadActor("../_songinfo")..{
