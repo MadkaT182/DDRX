@@ -1,10 +1,9 @@
 return Def.ActorFrame {
 
---Check
--- LoadActor( "bgm" )..{
--- 	OnCommand=cmd(play);
--- 	OffCommand=cmd(stop);
--- };
+LoadActor( "bgm" )..{
+	OnCommand=cmd(play);
+	OffCommand=cmd(stop);
+};
 
 LoadActor("ddrx_logobg1")..{
 OnCommand=cmd(FullScreen);
