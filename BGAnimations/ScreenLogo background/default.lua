@@ -13,11 +13,13 @@ OnCommand=cmd(x,SCREEN_CENTER_X+7;y,SCREEN_CENTER_Y-11);
 };
 
 LoadActor("ddrx_light1")..{
-OnCommand=cmd(diffusealpha,0.2;horizalign,left;vertalign,top;y,SCREEN_CENTER_Y-240;x,SCREEN_LEFT-253;blend,'BlendMode_Add';rotationz,-90;linear,7;rotationz,6;linear,7;rotationz,-90);
+OnCommand=cmd(diffusealpha,0.2;horizalign,left;vertalign,top;y,SCREEN_CENTER_Y-240;x,SCREEN_LEFT-253;blend,'BlendMode_Add';rotationz,-90;linear,7;rotationz,6;linear,7;rotationz,-90;queuecommand,"Later");
+LaterCommand=cmd(sleep,14;queuecommand,"On");
 };
 
 LoadActor("ddrx_light1")..{
-OnCommand=cmd(diffusealpha,0.2;horizalign,left;vertalign,top;y,SCREEN_CENTER_Y+530;x,SCREEN_RIGHT-20;blend,'BlendMode_Add';rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98);
+OnCommand=cmd(diffusealpha,0.2;horizalign,left;vertalign,top;y,SCREEN_CENTER_Y+530;x,SCREEN_RIGHT-20;blend,'BlendMode_Add';rotationx,180;rotationz,98;linear,7;rotationz,24;linear,7;rotationz,98;queuecommand,"Later");
+LaterCommand=cmd(sleep,14;queuecommand,"On");
 };
 
 LoadActor("ddrx_logo1")..{
@@ -33,27 +35,31 @@ OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+219;diffusealpha,0;sleep,0.916
 };
 
 LoadActor("d1")..{
-OnCommand=cmd(x,SCREEN_CENTER_X-149;y,SCREEN_CENTER_Y;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+OnCommand=cmd(x,SCREEN_CENTER_X-149;y,SCREEN_CENTER_Y;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0;queuecommand,"Later");
+LaterCommand=cmd(sleep,18.6;queuecommand,"On");
 };
 
 LoadActor("d2")..{
-OnCommand=cmd(x,SCREEN_CENTER_X-131;y,SCREEN_CENTER_Y+47;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.466;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+OnCommand=cmd(x,SCREEN_CENTER_X-131;y,SCREEN_CENTER_Y+47;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.466;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0;queuecommand,"Later");
+LaterCommand=cmd(sleep,18.6;queuecommand,"On");
 };
 
 LoadActor("r")..{
-OnCommand=cmd(x,SCREEN_CENTER_X-23;y,SCREEN_CENTER_Y+99;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.932;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0);
+OnCommand=cmd(x,SCREEN_CENTER_X-23;y,SCREEN_CENTER_Y+99;blend,'BlendMode_Add';diffusealpha,0;sleep,2.183;sleep,0.932;linear,0.233;diffusealpha,0.4;linear,0.233;diffusealpha,0;queuecommand,"Later");
+LaterCommand=cmd(sleep,18.6;queuecommand,"On");
 };
 
 LoadActor("x")..{
-OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,2.183;sleep,1.631;linear,0.383;diffusealpha,0.4;zoom,1.15;linear,0.383;diffusealpha,0;zoom,1.3);
+OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,2.183;sleep,1.631;linear,0.383;diffusealpha,0.4;zoom,1.15;linear,0.383;diffusealpha,0;zoom,1.3;queuecommand,"Later");
+LaterCommand=cmd(sleep,18.6;queuecommand,"On");
 };
 
 LoadActor("x")..{
-OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.416;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
+OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.416;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65;);
 };
 
 LoadActor("x")..{
-OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65);
+OnCommand=cmd(x,SCREEN_CENTER_X+92;y,SCREEN_CENTER_Y-21;blend,'BlendMode_Add';diffusealpha,0;zoom,1;sleep,0.55;diffusealpha,0.4;linear,0.333;diffusealpha,0;zoom,1.65;);
 };
 
 LoadActor("../_black")..{
