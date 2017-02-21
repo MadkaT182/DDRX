@@ -2,6 +2,13 @@ local t = Def.ActorFrame {};
 
 if not GAMESTATE:IsDemonstration() then
 
+	t[#t+1] = LoadFont("_Serial")..{
+		InitCommand=cmd(horizalign,left;x,7;y,10;playcommand,"Set");
+		SetCommand=function(self)
+			self:settext(GetSerial());
+		end
+	};
+
 	t[#t+1] = Def.ActorFrame {
 		LoadActor( "unlock" )..{
 			OnCommand=cmd(x,SCREEN_RIGHT-33;y,SCREEN_CENTER_Y-61);

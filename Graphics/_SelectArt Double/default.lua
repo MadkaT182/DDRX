@@ -1,0 +1,17 @@
+if GAMESTATE:GetMasterPlayerNumber() == PLAYER_1 then
+
+return Def.ActorFrame {
+LoadActor( "Art.png" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-877;y,SCREEN_CENTER_Y-270);
+	};
+}
+
+else
+
+return Def.ActorFrame {
+LoadActor( "Art2" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-877;y,SCREEN_CENTER_Y-270);
+	};
+}
+
+end;

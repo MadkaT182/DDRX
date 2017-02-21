@@ -5,7 +5,7 @@ LoadActor("_swooshStyle")..{
 };
 
 LoadActor("../_black")..{
-OnCommand=cmd(Center,diffusealpha,1;decelerate,0.266;diffusealpha,0);
+OnCommand=cmd(FullScreen;diffusealpha,1;decelerate,0.266;diffusealpha,0);
 };
 
 }

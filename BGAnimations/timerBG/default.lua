@@ -1,4 +1,7 @@
 return Def.ActorFrame {
+InitCommand=function(self)
+	self:visible(PREFSMAN:GetPreference("MenuTimer"));
+end;
 
 LoadActor("timerbg")..{
 OnCommand=cmd(zoom,0;decelerate,0.1;zoom,1);
