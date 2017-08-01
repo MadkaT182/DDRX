@@ -1,4 +1,28 @@
+local function Radar()
+	local function set(self,player)
+		local Selection = GAMESTATE:GetCurrentSteps(player) or GAMESTATE:GetCurrentTrail(player)
+		local Song = GAMESTATE:GetCurrentSong();
+		if not Selection or not Song then
+			self:SetEmpty( player );
+			return
+		end
+		self:SetFromRadarValues( player, Selection:GetRadarValues(player) );
+	end
+
+	local t = Def.GrooveRadar {
+		OnCommand=cmd();
+		OffCommand=cmd(linear,0.6;rotationz,180*4;zoom,0);
+		CurrentStepsP1ChangedMessageCommand=function(self) set(self, PLAYER_1); end;
+		CurrentStepsP2ChangedMessageCommand=function(self) set(self, PLAYER_2); end;
+		CurrentTrailP1ChangedMessageCommand=function(self) set(self, PLAYER_1); end;
+		CurrentTrailP2ChangedMessageCommand=function(self) set(self, PLAYER_2); end;
+	};
+
+	return t;
+end
+
 local t = Def.ActorFrame {
+
 	LoadActor( "difficulty_bg" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-162;y,SCREEN_CENTER_Y+135;zoomy,0;sleep,0.466;zoomy,0.136;linear,0.133;zoomy,1.036;linear,0.066;zoomy,0.88;linear,0.033;zoomy,1);
 		OffCommand=cmd(sleep,0.266;accelerate,0.133;addx,-SCREEN_WIDTH/2);
@@ -38,6 +62,11 @@ local t = Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X-164;y,SCREEN_CENTER_Y+19;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,1,1,1,0.4;effectperiod,1.33;addx,-SCREEN_WIDTH;sleep,1.283;addx,SCREEN_WIDTH);
 		OffCommand=cmd(sleep,0.233;stopeffect;linear,0.05;diffusealpha,0);
 	};
+
+	Radar() .. {
+		BeginCommand=cmd(x,SCREEN_CENTER_X-165;y,SCREEN_CENTER_Y+20);
+	};
+
 };
 
 return t;
