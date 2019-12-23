@@ -1,10 +1,3 @@
-local t = Def.ActorFrame {};
-local file = "doorln";
-
-if IsUsingWideScreen() == true then
-	file = "doorlw";
-end
-
-t[#t+1] = LoadActor(file)..{};
-
-return t;
+return Def.ActorFrame{
+	LoadActor(IsUsingWideScreen() and "doorlw" or "doorln");
+};

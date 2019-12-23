@@ -1,6 +1,4 @@
-local t = Def.ActorFrame{};
-
-t[#t+1] = Def.ActorFrame {
+return Def.ActorFrame {
 	InitCommand=function(self) c = self:GetChildren(); end;
 
 	Def.Sprite{
@@ -57,5 +55,3 @@ t[#t+1] = Def.ActorFrame {
 	end;
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 };
-
-return t;

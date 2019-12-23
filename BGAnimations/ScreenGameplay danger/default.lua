@@ -13,15 +13,17 @@ local function GetPosition(pn)
 end;
 end;
 
---LoadFilters
-for player in ivalues(GAMESTATE:GetHumanPlayers()) do
-	t[#t+1] = LoadActor( "danger"..ToEnumShortString(player) )..{
-		InitCommand=function(self)
-			self:x(GetPosition(player));
-		end;
-		ShowCommand=cmd(diffusealpha,1);
-		HideCommand=cmd(diffusealpha,0);
-	}
-end
+if GAMESTATE:GetPlayMode() ~= 'PlayMode_Rave' and GAMESTATE:GetPlayMode() ~= 'PlayMode_Battle' then
+	--Load Danger Decorations
+	for player in ivalues(GAMESTATE:GetHumanPlayers()) do
+		t[#t+1] = LoadActor( "danger"..ToEnumShortString(player) )..{
+			InitCommand=function(self)
+				self:x(GetPosition(player));
+			end;
+			ShowCommand=cmd(diffusealpha,1);
+			HideCommand=cmd(diffusealpha,0);
+		}
+	end	
+end;
 
 return t

@@ -1,7 +1,6 @@
 --main backing
 local t = Def.ActorFrame {
- 		LoadActor("normal")..{
-	};
+ 		LoadActor("normal");
 --new song
 	LoadActor("NEW") .. {
 		InitCommand=cmd(x,-138;y,-25;finishtweening;draworder,1);
@@ -16,6 +15,29 @@ local t = Def.ActorFrame {
 				self:visible(false);
 			end
 		end;
+	};
+	--Song Info
+	Def.ActorFrame{
+		LoadFont("_shared2")..{
+			InitCommand=cmd(horizalign,left;x,-142;y,-10;maxwidth,300);
+			SetCommand=function(self,param)
+				if param.Song then
+					sColor = GetSongColor(param.Song:GetDisplayMainTitle());
+					self:settext(param.Song:GetDisplayFullTitle());
+					self:diffuse(color(sColor));
+				end
+			end
+		};
+		LoadFont("_shared2")..{
+			InitCommand=cmd(zoom,.692;horizalign,left;x,-142;y,5;maxwidth,433.52);
+			SetCommand=function(self,param)
+				if param.Song then
+					sColor = GetSongColor(param.Song:GetDisplayMainTitle());
+					self:settext(param.Song:GetDisplayArtist());
+					self:diffuse(color(sColor));
+				end
+			end
+		};
 	};
 -- --P1 Meter
 -- 	LoadFont("Common Normal")..{

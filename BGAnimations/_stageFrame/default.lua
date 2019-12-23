@@ -6,7 +6,6 @@ if IsUsingWideScreen() == true then
 end
 
 if not GAMESTATE:IsDemonstration() then
-
 	if GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
 		t[#t+1] = LoadActor("RaveFrame"..suffix)..{
 			OnCommand=cmd(x,SCREEN_CENTER_X);
@@ -20,11 +19,9 @@ if not GAMESTATE:IsDemonstration() then
 			OnCommand=cmd(x,SCREEN_CENTER_X);
 		};
 	end;
-
 	t[#t+1] = LoadActor("../_gpstg")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+6);
 	};
-
 end
 
 return t;

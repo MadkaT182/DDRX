@@ -1,4 +1,4 @@
-local t = Def.ActorFrame{
+return Def.ActorFrame{
 	Def.ActorFrame{
 		Name="DangerP2";
 		Def.ActorFrame{
@@ -29,6 +29,4 @@ local t = Def.ActorFrame{
 			};
 		}
 	};
-}
-
-return t;
+};

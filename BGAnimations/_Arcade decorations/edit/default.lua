@@ -1,17 +1,9 @@
-local t = Def.ActorFrame {};
-
-t[#t+1] = Def.ActorFrame {
-
-	LoadActor( "circle" )..{
+return Def.ActorFrame {
+	LoadActor("circle");
+	Def.Sprite{
+		Texture="arrow";
+		InitCommand=function(self)
+			self:SetAllStateDelays(.3);
+		end;
 	};
-
 };
-
-t[#t+1] = Def.ActorFrame {
-
-	LoadActor( "arrow" )..{
-	};
-
-};
-
-return t

@@ -42,3 +42,24 @@ function GetSerial()
 	--A fixed placeholder meanwhile
 	return "HDX:E:A:A:2009091100";
 end;
+
+--Enable/disable options
+function AllowOptionsMenu()
+  if GAMESTATE:GetPlayMode() == "PlayMode_Oni" then 
+    return false
+  else
+    return true
+  end
+end
+
+--Set Oni Mods
+function SetOniOptions()
+	for player in ivalues(GAMESTATE:GetHumanPlayers()) do
+		-- local batlives = 4;
+		-- -- GAMESTATE:ResetPlayerOptions(player);
+		-- GAMESTATE:GetPlayerState(player):GetPlayerOptions('ModsLevel_Stage'):NoteSkin("cyber")
+		-- GAMESTATE:GetPlayerState(player):GetPlayerOptions('ModsLevel_Stage'):LifeSetting('LifeType_Battery');
+		-- GAMESTATE:GetPlayerState(player):GetPlayerOptions('ModsLevel_Stage'):BatteryLives(batLives);
+		-- GAMESTATE:GetPlayerState(player):GetPlayerOptions('ModsLevel_Stage'):FailSetting('FailType_Immediate');
+	end
+end

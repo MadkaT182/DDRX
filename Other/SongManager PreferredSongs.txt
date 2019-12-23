@@ -1,5 +1,79 @@
 --- DDR X
-DDR X/*
+--Yellow
+DDR X/Butterfly (2008 X-edit)
+DDR X/Boys (2008 X-edit)
+DDR X/DUB-I-DUB (2008 X-edit)
+DDR X/GET UP'N MOVE (2008 X-edit)
+DDR X/PORIRIZUMU
+DDR X/Koko Soko
+DDR X/Suki Melo
+DDR X/SEKAI HA ODORU
+DDR X/Trickster
+DDR X/Tabibito
+DDR X/30 Lives (Up-Up-Down-Dance Mix)
+DDR X/Always on My Mind
+DDR X/Big Girls Don't Cry
+DDR X/Feel
+DDR X/Ghetto Blasta Deluxe
+DDR X/Happy
+DDR X/Here It Goes Again
+DDR X/Make Me Cry
+DDR X/Put 'Em Up
+DDR X/Reach Up
+DDR X/Swingin'
+DDR X/Till the lonely's gone
+DDR X/U Can't Touch This
+DDR X/We Come Alive
+DDR X/We've Got To Make It Tonight
+--Cyan
+DDR X/A Geisha's Dream
+DDR X/Dance Celebration
+DDR X/Dance Celebration (System 7 Remix)
+DDR X/Dance Floor
+DDR X/Dream Machine
+DDR X/Flight of the Phoenix
+DDR X/Flourish
+DDR X/Inspiration
+DDR X/Lift You Up
+DDR X/Party Lights
+DDR X/Playa (Original Mix)
+DDR X/Slip Out
+DDR X/Slip Out (bounce in beat mix)
+DDR X/Taj He Spitz
+DDR X/Taj He Spitz (Tommie Sunshine's Brooklyn Fire Re-Touch)
+DDR X/Take A Chance
+DDR X/Ticket To Bombay
+DDR X/Tracers (4Beat Remix)
+DDR X/Waiting 4 u
+DDR X/dazzle
+DDR X/Malacca
+DDR X/puzzle
+DDR X/SAGA
+DDR X/The flower in your smile
+DDR X/TimeHollow
+DDR X/Chance and Dice
+DDR X/ZERO
+DDR X/Blue Rain
+DDR X/Rin To Shite Saku Hana No Gotoku
+DDR X/Ubertreffen
+DDR X/will
+DDR X/Beautiful Inside (Cube Hard Mix)
+DDR X/SUPER SAMURAI
+DDR X/INTO YOUR HEART (Ruffage remix)
+DDR X/LOVING YOU (Epidemik remix)
+--Purple
+DDR X/Xmix1 (Midnight Dawn)
+DDR X/Xmix2 (Beats 'n Bangs)
+DDR X/Xmix3 (Stomp Dem Groove)
+DDR X/Xmix4 (Linear Momentum)
+DDR X/Xmix5 (Overcrush)
+--Cyan
+DDR X/On The Break
+DDR X/SABER WING
+DDR X/SABER WING (AKIRA ISHIHARA Headshot mix)
+DDR X/Horatio
+DDR X/on the bounce
+DDR X/Trigger
 --- DDR SuperNOVA2
 DDR SuperNOVA2/*
 --- DDR SuperNOVA

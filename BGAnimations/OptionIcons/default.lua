@@ -167,13 +167,12 @@ return Def.ActorFrame {
 
 	----------------------------------------------------------
 	-- Risky
-	Def.Sprite {
-		ShowCommand=function(self)
-			self:x(85)
-
-			if GAMESTATE:PlayerIsUsingModifier(player, 'battery') then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/Risky (doubleres).png")
-			end
-		end
-	}
+	-- Def.Sprite {
+	-- 	ShowCommand=function(self)
+	-- 		self:x(85)
+	-- 		if GAMESTATE:PlayerIsUsingModifier(player, 'battery') then
+	-- 			self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/risky (doubleres).png")
+	-- 		end
+	-- 	end
+	-- }
 }

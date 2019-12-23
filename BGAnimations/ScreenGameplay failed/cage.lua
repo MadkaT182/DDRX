@@ -1,14 +1,6 @@
-local t = Def.ActorFrame {};
-local file = "basen";
-
-if IsUsingWideScreen() == true then
-	file = "basew";
-end
-
-t[#t+1] = LoadActor(file)..{
-	OnCommand=cmd(addy,225);
+return Def.ActorFrame{
+	LoadActor(IsUsingWideScreen() and "basew" or "basen")..{
+		OnCommand=cmd(addy,225);
+	};
+	LoadActor("cgbg");
 };
-
-t[#t+1] = LoadActor("cgbg")..{};
-
-return t;

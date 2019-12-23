@@ -1,5 +1,3 @@
-local t = Def.ActorFrame {};
-
-t[#t+1] = LoadActor( THEME:GetPathB("_Arcade","decorations") );
-
-return t;
+return Def.ActorFrame{
+	LoadActor(THEME:GetPathB("_Arcade","decorations"));	
+};

@@ -1,4 +1,4 @@
-local t = Def.ActorFrame {
+return Def.ActorFrame {
 	Def.Sprite{
 		BeginCommand=cmd(playcommand,"SetGraphic");
 		SetGraphicCommand=function(self)
@@ -17,5 +17,3 @@ local t = Def.ActorFrame {
 		end;
 	};
 };
-
-return t;

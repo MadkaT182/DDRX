@@ -216,7 +216,9 @@ t[#t+1] = Def.ActorFrame {
 
 };
 
-
+if GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then
+	SetOniOptions();
+end
 
 --Option icons
 if not GAMESTATE:IsDemonstration() then

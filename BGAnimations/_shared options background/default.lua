@@ -1,7 +1,5 @@
 return Def.ActorFrame {
-
-LoadActor("bga")..{
-OnCommand=cmd(FullScreen);
-};
-
+	LoadActor("bga")..{
+		OnCommand=cmd(FullScreen);
+	};
 }

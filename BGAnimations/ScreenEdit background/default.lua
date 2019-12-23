@@ -1,14 +1,11 @@
 return Def.ActorFrame {
-	LoadActor( "background" )..{
+	LoadActor("background")..{
 		InitCommand=cmd(FullScreen);
 	};
-
-	LoadActor( "right" )..{
+	LoadActor("right")..{
 		InitCommand=cmd(x,SCREEN_RIGHT-61;y,SCREEN_CENTER_Y);
 	};
-
-	LoadActor( "left" )..{
+	LoadActor("left")..{
 		InitCommand=cmd(x,SCREEN_LEFT+64;y,SCREEN_CENTER_Y);
 	};
-
 }

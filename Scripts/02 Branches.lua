@@ -1,4 +1,9 @@
 function HasMines()
+
+	if GAMESTATE:IsCourseMode() then
+		return "ScreenStageInformation";
+	end
+
 	local HasMines = false;
 	for _,pn in ipairs( GAMESTATE:GetHumanPlayers() ) do
 	local steps = GAMESTATE:GetCurrentSteps( pn );
@@ -14,6 +19,13 @@ function HasMines()
 	else
 		return "ScreenStageInformation";
 	end
+end;
+
+function DDRCredits()
+	if GAMESTATE:IsEventMode() then
+		return SelectMusicOrCourse()
+	end
+	return Grade:Compare(STATSMAN:GetBestFinalGrade(), 'Grade_Tier03') <= 0 and "ScreenCredits" or "ScreenThanks"
 end;
 
 Branch = {
@@ -114,7 +126,11 @@ Branch = {
 			return DDRCredits()
 		elseif GAMESTATE:GetSmallestNumStagesLeftForAnyHumanPlayer() == 0 then
 			if not GAMESTATE:IsCourseMode() then
-				return "ScreenEvaluationSummary"
+				if GAMESTATE:GetPlayMode() == 'PlayMode_Rave' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' then
+					return "ScreenEvaluationRaveSummary"
+				else
+					return "ScreenEvaluationSummary"
+				end
 			else
 				return DDRCredits()
 			end
@@ -137,23 +153,14 @@ Branch = {
 		if SCREENMAN:GetTopScreen():GetGoToOptions() then
 			return SelectFirstOptionsScreen()
 		else
-			--return "ScreenStageInformation"
 			return HasMines()
 		end
 	end,
 	PlayerOptions = function()
 		local pm = GAMESTATE:GetPlayMode()
-		local restricted = { PlayMode_Oni= true, PlayMode_Rave= true,
-			--"PlayMode_Battle" -- ??
-		}
-		local optionsScreen = "ScreenPlayerOptions"
-		if restricted[pm] then
-			optionsScreen = "ScreenPlayerOptionsRestricted"
-		end
 		if SCREENMAN:GetTopScreen():GetGoToOptions() then
-			return optionsScreen
+			return "ScreenPlayerOptions"
 		else
-			--return "ScreenStageInformation"
 			return HasMines()
 		end
 	end,
@@ -161,16 +168,28 @@ Branch = {
 		if SCREENMAN:GetTopScreen():GetGoToOptions() then
 			return "ScreenSongOptions"
 		else
-			--return "ScreenStageInformation"
 			return HasMines()
 		end
 	end,
 	GameplayScreen = function()
-		return IsRoutine() and "ScreenGameplayShared" or "ScreenGameplay"
+		if IsRoutine() then
+			return "ScreenGameplayShared"
+		elseif GAMESTATE:GetPlayMode() == 'PlayMode_Rave' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' then
+			--Battle mode
+			return "ScreenGameplayRave"
+		elseif GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then
+			--Oni
+			return "ScreenGameplayOni"
+		else
+			return "ScreenGameplay"
+		end
 	end,
 	EvaluationScreen= function()
 		if IsNetSMOnline() then
 			return "ScreenNetEvaluation"
+		elseif GAMESTATE:GetPlayMode() == 'PlayMode_Rave' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' then
+			--Battle mode
+			return "ScreenEvaluationRave"
 		else
 			-- todo: account for courses etc?
 			return "ScreenEvaluationNormal"

@@ -1,0 +1,110 @@
+#TITLE:ScreenHowToPlay steps;
+#SUBTITLE:;
+#ARTIST:foo;
+#TITLETRANSLIT:;
+#SUBTITLETRANSLIT:;
+#ARTISTTRANSLIT:;
+#GENRE:;
+#CREDIT:;
+#BANNER:;
+#BACKGROUND:;
+#LYRICSPATH:;
+#CDTITLE:;
+#MUSIC:ScreenHowToPlay music (loop).mp3;
+#OFFSET:0.000;
+#SAMPLESTART:22.400;
+#SAMPLELENGTH:12.000;
+#SELECTABLE:YES;
+#BPMS:0.000=100.000;
+#STOPS:6.875=1.040
+,6.698=6.900
+,10.100=1.040
+,10.978=6.360
+;
+#TIMESIGNATURES:0.000;
+#BGCHANGES:;
+#KEYSOUNDS:;
+#ATTACKS:;
+
+//---------------dance-single - BASIC----------------
+#NOTES:
+     dance-single:
+     BASIC:
+     Easy:
+     1:
+     0.032,0.037,0.035,0.070,0.000:  // measure 1
+0000
+0000
+0000
+0000
+,  // measure 2
+0000
+0000
+0000
+0010
+,  // measure 3
+0000
+0000
+0000
+1001
+,  // measure 4
+0000
+0000
+0000
+0020
+,  // measure 5
+0000
+0000
+0000
+0000
+,  // measure 6
+0000
+0000
+0000
+0030
+,  // measure 7
+0000
+0000
+2002
+0000
+,  // measure 8
+0000
+0000
+0000
+0000
+,  // measure 9
+0000
+0000
+0000
+0000
+,  // measure 10
+3003
+0000
+0000
+0000
+,  // measure 11
+0020
+0000
+0000
+0000
+,  // measure 12
+0000
+0000
+0000
+0000
+,  // measure 13
+0000
+0000
+0030
+0000
+,  // measure 14
+0000
+0000
+1000
+0000
+,  // measure 15
+0001
+0000
+0000
+0000
+;

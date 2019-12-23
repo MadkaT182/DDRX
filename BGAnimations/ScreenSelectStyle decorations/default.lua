@@ -1,9 +1,9 @@
-local t = Def.ActorFrame {
-	LoadActor( "../_header" )..{};
-	LoadActor( "../_footer" )..{
+return Def.ActorFrame {
+	LoadActor("../_header");
+	LoadActor("../_footer")..{
 		OnCommand=cmd(draworder,1)
 	};
-	LoadActor( "../_footer/style" )..{
+	LoadActor("../_footer/style")..{
 		OnCommand=cmd(draworder,1)
 	};
 	LoadActor("../_titles/sel_style")..{
@@ -11,5 +11,3 @@ local t = Def.ActorFrame {
 	OffCommand=cmd(linear,0.05;addx,-35;diffusealpha,0);
 	};
 };
-
-return t;
