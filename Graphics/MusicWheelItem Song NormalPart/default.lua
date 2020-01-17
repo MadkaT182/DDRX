@@ -1,7 +1,5 @@
---main backing
 local t = Def.ActorFrame {
- 		LoadActor("normal");
---new song
+ 	LoadActor("normal");
 	LoadActor("NEW") .. {
 		InitCommand=cmd(x,-138;y,-25;finishtweening;draworder,1);
 		SetCommand=function(self,param)
@@ -16,7 +14,6 @@ local t = Def.ActorFrame {
 			end
 		end;
 	};
-	--Song Info
 	Def.ActorFrame{
 		LoadFont("_shared2")..{
 			InitCommand=cmd(horizalign,left;x,-142;y,-10;maxwidth,300);
