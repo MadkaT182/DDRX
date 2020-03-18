@@ -25,7 +25,7 @@ local t = Def.ActorFrame {
 	-- };
 	LoadActor("BPMDisplay")..{
 		Name="BPMDisplay";
-		OnCommand=cmd(horizalign,right;y,55;x,163);
+		OnCommand=cmd(horizalign,right;y,55;x,124);
 	};
 	LoadActor("../_playmode")..{
 		InitCommand=cmd(x,-108;y,54);
