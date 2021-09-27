@@ -17,13 +17,13 @@ function GetDName(judge)
 	return jVal;
 end;
 
-function MakeAttack(enemy, attack, revert, state)
-	if state == "attack" then
-		GAMESTATE:GetPlayerState(enemy):SetPlayerOptions('ModsLevel_Song', GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptionsString('ModsLevel_Song')..','..attack)
-	else 
-		GAMESTATE:GetPlayerState(enemy):SetPlayerOptions('ModsLevel_Song', GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptionsString('ModsLevel_Song')..','..revert)
-	end
-end;
+-- function MakeAttack(enemy, attack, revert, state)
+-- 	if state == "attack" then
+-- 		GAMESTATE:GetPlayerState(enemy):SetPlayerOptions('ModsLevel_Song', GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptionsString('ModsLevel_Song')..','..attack)
+-- 	else 
+-- 		GAMESTATE:GetPlayerState(enemy):SetPlayerOptions('ModsLevel_Song', GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptionsString('ModsLevel_Song')..','..revert)
+-- 	end
+-- end;
 
 local t = Def.ActorFrame {};
 local sPlayMode = GAMESTATE:GetPlayMode();
@@ -34,6 +34,22 @@ local p1Level = 0;
 local p2Meter = 0;
 local p2Level = 0;
 local maxLevel = 5;
+
+--Attack limiter
+local limitp1 = false;
+local limitp2 = false;
+
+function MakeAttack(enemy)
+	SCREENMAN:SystemMessage("Attack starts");
+	limitp1 = true;
+	GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptions("ModsLevel_Song"):Dark(1,10);
+end;
+
+function StopAttack(enemy)
+	SCREENMAN:SystemMessage("Attack ends");
+	limitp1 = false;
+	GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptions("ModsLevel_Song"):Dark(0,10);
+end;
 
 -- if IsUsingWideScreen() then
 -- 	barw = 658;
@@ -62,6 +78,15 @@ if sPlayMode == 'PlayMode_Battle' or sPlayMode == 'PlayMode_Rave' then
 							if p1Meter > 1 then
 								SOUND:PlayOnce(THEME:GetPathS("Player battle","attack launch"));
 								--GAMESTATE:GetPlayerState(PLAYER_2):SetPlayerOptions('ModsLevel_Song', GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptionsString('ModsLevel_Song')..','..'dark')
+								-- if not limitp1 then
+								-- 	self:queuecommand("Attack");
+								-- 	limitp1 = true;
+								-- end
+								if not limitp1 then
+									MakeAttack(PLAYER_2);
+									self:sleep(10);
+									StopAttack(PLAYER_2);
+								end
 								p1Level = p1Level +1;
 								p1Meter = 0;
 								if p1Level > maxLevel then
@@ -78,6 +103,21 @@ if sPlayMode == 'PlayMode_Battle' or sPlayMode == 'PlayMode_Rave' then
 							self:linear(.1);
 							self:rotationz(p1Meter*90);
 						end
+					end;
+					AttackCommand=function(self)
+						SCREENMAN:SystemMessage("Attack begins");
+						self:sleep(5);
+						-- SCREENMAN:SystemMessage("B");
+						-- GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptions("ModsLevel_Song"):Dark(1,10);
+						-- SCREENMAN:SystemMessage("C");
+						self:queuecommand("Restore");
+					end;
+					RestoreCommand=function(self)
+						SCREENMAN:SystemMessage("Attack ends");
+						-- GAMESTATE:GetPlayerState(PLAYER_2):GetPlayerOptions("ModsLevel_Song"):Dark(0,10);
+						-- limitp1 = false;
+						self:sleep(5);
+						self:queuecommand("Attack");
 					end;
 				};
 				LoadActor("fill")..{

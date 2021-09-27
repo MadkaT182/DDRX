@@ -1,5 +1,11 @@
 local t = Def.ActorFrame{};
 local playernum = GAMESTATE:GetNumSidesJoined();
+local maxp1;
+local p1half;
+local p1end;
+local maxp2;
+local p2half;
+local p2end;
 
 for player in ivalues(GAMESTATE:GetEnabledPlayers()) do
 	local plChar = GAMESTATE:GetCharacter(player):GetCharacterID();
@@ -8,7 +14,17 @@ for player in ivalues(GAMESTATE:GetEnabledPlayers()) do
 	local xPos = SCREEN_CENTER_X+191;
 	local suffix = "P1";
 
+	if player == PLAYER_1 then
+		maxp1 = GAMESTATE:GetCurrentSteps(PLAYER_1):GetRadarValues(PLAYER_1):GetValue('RadarCategory_TapsAndHolds');
+		p1half = math.round(maxp1*.5);
+		p1end = math.round(maxp1*.9);
+	end
+
 	if player == PLAYER_2 then
+		maxp2 = GAMESTATE:GetCurrentSteps(PLAYER_2):GetRadarValues(PLAYER_2):GetValue('RadarCategory_TapsAndHolds');
+		p2half = math.round(maxp2*.5);
+		p2end = math.round(maxp2*.9);
+
 		xPos = SCREEN_CENTER_X-191;
 		suffix = "P2";
 	end
@@ -22,7 +38,7 @@ for player in ivalues(GAMESTATE:GetEnabledPlayers()) do
 
 		--Check if char has ALL required files
 		if FILEMAN:DoesFileExist(plDir.."bg.png") and FILEMAN:DoesFileExist(plDir.."circles.png") and FILEMAN:DoesFileExist(plDir.."art1.png") and FILEMAN:DoesFileExist(plDir.."art2.png") and FILEMAN:DoesFileExist(plDir.."art3.png") and FILEMAN:DoesFileExist(plDir.."gradient.png") then
-SCREENMAN:SystemMessage("Char ready!");
+-- SCREENMAN:SystemMessage("Char ready!");
 		t[#t+1] = Def.ActorFrame {
 			LoadActor(THEME:GetPathG("toasty_mask","Single"))..{
 				InitCommand=cmd(diffusealpha,0);
@@ -102,6 +118,7 @@ SCREENMAN:SystemMessage("Char ready!");
 			ComboChangedMessageCommand=function(self, params)
 				if params.Player == player then
 					local CurCombo = params.PlayerStageStats:GetCurrentCombo();
+
 					if CurCombo == 20 then
 						plArt = 1;
 						self:queuecommand("Play");
@@ -109,79 +126,29 @@ SCREENMAN:SystemMessage("Char ready!");
 						if CurCombo%100 == 0 then
 							plArt = 2;
 						else
-							plArt = 3;
+							plArt = 1;
 						end
 						self:queuecommand("Play");
 					elseif CurCombo == 0 then return
 					end;
+
+					if player == PLAYER_1 then
+						if CurCombo == p1half or CurCombo == p1end then
+							plArt = 3;
+							self:queuecommand("Play");
+						end
+					else
+						if CurCombo == p2half or CurCombo == p2end then
+							plArt = 3;
+							self:queuecommand("Play");
+						end
+					end
 				end
 			end;
 		};
 
 		end
-
-		--Cut-in
-		-- t[#t+1] = Def.ActorFrame {
-		-- 	LoadActor(THEME:GetPathG("toasty_mask"..suffix,"Single"))..{
-		-- 		InitCommand=cmd(diffusealpha,0);
-		-- 		PlayCommand=cmd(blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,true;x,xPos-41+13;y,240;diffusealpha,0;linear,.166;diffusealpha,1;sleep,1;linear,.166;diffusealpha,0);
-		-- 		Condition=playernum==1
-		-- 	};
-		-- 	LoadActor(THEME:GetPathG("toasty_maskP1","Versus"))..{
-		-- 		InitCommand=cmd(blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,true;x,xPos-41+13;y,240;diffusealpha,0;linear,.166;diffusealpha,1;sleep,1;linear,.166;diffusealpha,0);
-		-- 		Condition=playernum==2 and player=="PLAYER_1"
-		-- 	};
-		-- 	LoadActor(THEME:GetPathG("toasty_maskP2","Versus"))..{
-		-- 		InitCommand=cmd(blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,true;x,xPos-41+13;y,240;diffusealpha,0;linear,.166;diffusealpha,1;sleep,1;linear,.166;diffusealpha,0);
-		-- 		Condition=playernum==2 and player=="PLAYER_2"
-		-- 	};
-		-- 	LoadActor(plDir.."/bg")..{
-		-- 		InitCommand=cmd(diffusealpha,0);
-		-- 		PlayCommand=cmd(ztest,true;x,xPos;y,240;diffusealpha,0;linear,.166;diffusealpha,1;sleep,1;linear,.166;diffusealpha,0);
-		-- 	};
-		-- 	LoadActor(plDir.."/bg")..{
-		-- 		InitCommand=cmd(diffusealpha,0);
-		-- 		PlayCommand=cmd(ztest,true;blend,'BlendMode_Add';x,xPos-56;y,240;diffusealpha,0;sleep,.066;linear,0.1;diffusealpha,0.8;linear,.668;x,xPos;linear,0.1;diffusealpha,0);
-		-- 	};
-		-- 	LoadActor(plDir.."/art1")..{
-		-- 		InitCommand=cmd(diffusealpha,0);
-		-- 		PlayCommand=cmd(ztest,true;x,xPos-28;y,284;diffusealpha,0;sleep,.066;linear,.1;y,i==1 and 208-p1VFix or 448;diffusealpha,1;linear,1;y,i==1 and 194-p1VFix or 438;linear,.1;y,i==1 and 194-p1VFix or 434;diffusealpha,0);
-		-- 	};
-		-- 	-- LoadActor(plDir.."/art2")..{
-		-- 	-- 	InitCommand=cmd(diffusealpha,0);
-		-- 	-- 	PlayCommand=cmd(ztest,true;x,xPos-28;y,284;diffusealpha,0;sleep,.066;linear,.1;y,208;diffusealpha,1;linear,1;y,198;linear,.1;y,194;diffusealpha,0);
-		-- 	-- 	Condition=plArt==2
-		-- 	-- };
-		-- 	-- LoadActor(plDir.."/art3")..{
-		-- 	-- 	InitCommand=cmd(diffusealpha,0);
-		-- 	-- 	PlayCommand=cmd(ztest,true;x,xPos-28;y,284;diffusealpha,0;sleep,.066;linear,.1;y,208;diffusealpha,1;linear,1;y,198;linear,.1;y,194;diffusealpha,0);
-		-- 	-- 	Condition=plArt==3
-		-- 	-- };
-		-- 	LoadActor(plDir.."/gradient")..{
-		-- 		InitCommand=cmd(diffusealpha,0);
-		-- 		PlayCommand=cmd(ztest,true;x,xPos-28;y,240;blend,'BlendMode_Add';diffusealpha,0;sleep,.166;linear,.5;diffusealpha,.8;linear,.5;diffusealpha,0);
-		-- 	};
-		-- 	ComboChangedMessageCommand=function(self, params)
-		-- 		if params.Player == player then
-		-- 			local CurCombo = params.PlayerStageStats:GetCurrentCombo();
-		-- 			if CurCombo == 25 then
-		-- 				plArt = 1;
-		-- 				self:queuecommand("Play");
-		-- 			elseif CurCombo ~= 0 and CurCombo % 50 == 0 then
-		-- 				if CurCombo%100 == 0 then
-		-- 					plArt = 2;
-		-- 				else
-		-- 					plArt = 3;
-		-- 				end
-		-- 				self:queuecommand("Play");
-		-- 			elseif CurCombo == 0 then return
-		-- 			end;
-		-- 		end
-		-- 	end;
-		-- };
 	end
-
 end
 
---SCREENMAN:SystemMessage("CutIns ready!");
 return t;

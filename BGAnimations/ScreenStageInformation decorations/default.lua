@@ -10,28 +10,26 @@ t[#t+1] = Def.ActorFrame {
 	OnCommand=cmd(x,SCREEN_CENTER_X+SCREEN_WIDTH/4;y,SCREEN_CENTER_Y;addx,SCREEN_WIDTH/2;sleep,0.000;linear,0.2;addx,-SCREEN_WIDTH/2);
 	};
 
-}
-
-if not GAMESTATE:IsCourseMode() then
-
-t[#t+1] = Def.ActorFrame {
-	LoadActor("../_cds")..{};
-}
-
-end
+};
 
 t[#t+1] = Def.ActorFrame {
 
+	LoadActor("../_cds")..{
+		Condition=not GAMESTATE:IsCourseMode()
+	};
 	LoadActor( "../CommonScreen/sides" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-158;y,SCREEN_CENTER_Y-110;);
 	};
-
-	LoadActor( "../CommonScreen/sides" )..{
+	LoadActor("../CommonScreen/sides")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X+158;y,SCREEN_CENTER_Y-110;zoomx,-1);
 	};
-
-	LoadActor("../banner frame")..{
+	Def.ActorFrame{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-133;zoomy,0;diffusealpha,0.8;sleep,0.000;sleep,0.816;decelerate,0.15;zoomy,1;diffusealpha,1;accelerate,0.033;zoomx,1.06;decelerate,0.033;zoomx,1);
+		LoadActor("../banner frame");
+		Def.Sprite {
+			BeginCommand=cmd(LoadFromCurrentSongBanner);
+			OnCommand=cmd(scaletoclipped,256,80);
+		};
 	};
 
 	-- LoadActor("songbanner")..{
@@ -47,17 +45,25 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor("../_playmode")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X-107;y,SCREEN_CENTER_Y-90;vertalign,top;zoomy,0;diffusealpha,0.8;addy,-43;sleep,0.000;sleep,0.816;decelerate,0.15;zoomy,1;diffusealpha,1;addy,43;accelerate,0.033;zoomx,1.05;addx,-9;decelerate,0.033;zoomx,1;addx,9);
 	};
-
+	-- Def.ActorFrame{
+	-- 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-20;diffusealpha,0;sleep,0.000;sleep,1.516;accelerate,0.3;rotationz,349.5;diffusealpha,1;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
+	-- 	LoadActor("../CommonScreen/stageframe");
+	-- 	LoadActor("StageDisplay");
+	-- };
+		
 	LoadActor("../CommonScreen/stageframe")..{
-	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-20;diffusealpha,0;sleep,0.000;sleep,1.516;accelerate,0.3;rotationz,349.5;diffusealpha,1;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-20;diffusealpha,0;sleep,0.000;sleep,1.516;accelerate,0.3;rotationz,349.5;diffusealpha,1;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
 	};
 
 	LoadActor("../CommonScreen/s01")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X-181;y,SCREEN_CENTER_Y-13;diffusealpha,0;sleep,0.000;sleep,1.966;diffusealpha,1);
 	};
-
 	LoadActor("../CommonScreen/s02")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X+179;y,SCREEN_CENTER_Y+2;diffusealpha,0;sleep,0.000;sleep,2.016;diffusealpha,1);
+	};
+
+	LoadActor("StageDisplay")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-20;diffusealpha,0;sleep,0.000;sleep,1.516;accelerate,0.3;rotationz,349.5;diffusealpha,1;accelerate,0.05;zoom,1.6;decelerate,0.083;zoom,0.95;decelerate,0.016;zoom,1);
 	};
 
 	-- LoadActor("../CommonScreen/1")..{
@@ -205,15 +211,13 @@ t[#t+1] = Def.ActorFrame {
 	-- Condition= GAMESTATE:GetPlayMode() == 'PlayMode_Endless'
 	-- };
 
-	LoadActor( "../_header/centered" )..{};
-
-	LoadActor( "../_footer" )..{};
-
-	LoadActor( "../_titles/sel_song" )..{
+	LoadActor("../_header/centered");
+	LoadActor("../_footer");
+	LoadActor("../_titles/sel_song")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-15;y,SCREEN_CENTER_Y-203;rotationz,-4;diffusealpha,0;zoom,1;addy,-12;sleep,0.000;sleep,0.283;decelerate,0.066;diffusealpha,1;addy,12;linear,0.016;zoom,1.083;decelerate,0.083;zoom,1);
 		OffCommand=cmd(linear,0.1;addy,-14;diffusealpha,0);
 	};
-
+	LoadActor("SoundStage");
 };
 
 if GAMESTATE:GetPlayMode() == 'PlayMode_Oni' then

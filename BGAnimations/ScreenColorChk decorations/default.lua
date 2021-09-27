@@ -1,0 +1,52 @@
+return Def.ActorFrame {
+	LoadActor("bg")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X+15;y,SCREEN_CENTER_Y-12);
+	};
+	LoadFont("_service")..{
+		Text="COLOR CHECK";
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+40);
+	};
+	Def.ActorFrame{
+		InitCommand=cmd(x,SCREEN_CENTER_X-307);
+		LoadFont("_service")..{
+			Text="RED";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+97);
+		};
+		LoadFont("_service")..{
+			Text="YELLOW";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+141);
+		};
+		LoadFont("_service")..{
+			Text="GREEN";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+185);
+		};
+		LoadFont("_service")..{
+			Text="CYAN";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+229);
+		};
+		LoadFont("_service")..{
+			Text="BLUE";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+272);
+		};
+		LoadFont("_service")..{
+			Text="MAGENTA";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+317);
+		};
+		LoadFont("_service")..{
+			Text="WHITE";
+			InitCommand=cmd(horizalign,left;zoom,.62;y,SCREEN_TOP+360);
+		};
+	};
+	LoadFont("_service")..{
+		Text="^^^";
+		InitCommand=cmd(horizalign,left;x,SCREEN_CENTER_X-239;y,SCREEN_BOTTOM-87;zoom,.62;zoomx,1.2);
+	};
+	LoadFont("_service")..{
+		Text="COLORLESS";
+		InitCommand=cmd(horizalign,left;x,SCREEN_CENTER_X-241;y,SCREEN_BOTTOM-70;zoom,.62);
+	};
+	LoadFont("_service")..{
+		Text="PRESS 1P START BUTTON = EXIT";
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-24;zoom,.8);
+	};
+};

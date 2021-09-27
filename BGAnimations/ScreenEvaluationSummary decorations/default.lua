@@ -2,12 +2,12 @@ local st = GAMESTATE:GetCurrentStyle():GetStepsType();
 local stPl = STATSMAN:GetStagesPlayed();
 
 local t = Def.ActorFrame{
-	LoadActor( "../_header/centered" )..{};
-	LoadActor( "../_titles/result" )..{
+	LoadActor("../_header/centered");
+	LoadActor("../_titles/result")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-15;y,SCREEN_CENTER_Y-203;rotationz,-4;diffusealpha,0;zoom,1;addy,-12;sleep,0.000;sleep,0.283;decelerate,0.066;diffusealpha,1;addy,12;linear,0.016;zoom,1.083;decelerate,0.083;zoom,1);
 		OffCommand=cmd(linear,0.1;addy,-14;diffusealpha,0);
 	};
-	LoadActor( "../_footer" )..{};
+	LoadActor("../_footer");
 };
 
 --Spacing 48
@@ -17,7 +17,7 @@ for i = 1, stPl do
 	t[#t+1] = Def.ActorFrame{
 		InitCommand=cmd(Center);
 		BeginCommand=function(self)
-			self:addy((stPl - i)*48);
+			self:addy((stPl - i)*48-65);
 		end;
 		Def.Sprite{
 			InitCommand=function(self)
@@ -64,7 +64,7 @@ for pn in ivalues(PlayerNumber) do
 		t[#t+1] = Def.ActorFrame {
 			InitCommand=cmd(Center);
 			BeginCommand=function(self)
-				self:addy((stPl - i)*48);
+				self:addy((stPl - i)*48-65);
 			end;
 			--Stage
 			Def.Sprite{
