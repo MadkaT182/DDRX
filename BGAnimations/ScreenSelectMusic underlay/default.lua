@@ -50,5 +50,6 @@ return Def.ActorFrame {
 	};
 	LoadActor(THEME:GetPathG("","MWHL_bg"))..{
 		InitCommand=cmd(x,SCREEN_CENTER_X+235;y,SCREEN_CENTER_Y);
+		OffCommand=cmd(visible,false);
 	};
 };

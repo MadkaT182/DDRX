@@ -59,6 +59,7 @@ local t = Def.ActorFrame {
 	};
 	LoadActor("difflist")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-162;y,SCREEN_CENTER_Y+96);
+		OffCommand=cmd(visible,false);
 	};
 	LoadActor("shock")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-48)

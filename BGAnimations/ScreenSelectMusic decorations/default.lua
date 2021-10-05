@@ -1,3 +1,4 @@
+--TODO:Refactor - Check this screen animations and offcommand tweens
 local t = Def.ActorFrame {
 	LoadActor("_bg")..{
 		OnCommand=cmd(FullScreen;cropbottom,1;sleep,0.265;linear,0.25;cropbottom,0);
@@ -22,15 +23,18 @@ local t = Def.ActorFrame {
 	LoadActor( "../_footer/music" );
 	LoadActor( "banner" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-177;y,SCREEN_CENTER_Y-136);
+		OffCommand=cmd(linear,.3;x,SCREEN_CENTER_X-600)
 	};
 	LoadActor("bpm_bg")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-25;y,SCREEN_CENTER_Y-130);
+		OffCommand=cmd(visible,false);
 	};
 	-- LoadActor("bpmmeter")..{
 	-- 	OnCommand=cmd(x,SCREEN_CENTER_X-25;y,SCREEN_CENTER_Y-130);
 	-- };
 	LoadActor( "../norm_stage" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-164;y,SCREEN_CENTER_Y-81);
+		OffCommand=cmd(visible,false);
 	};
 	LoadActor("playerframe_bg")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-170;y,SCREEN_CENTER_Y+93;addx,-294;rotationz,-90;diffusealpha,0;sleep,0.2;linear,0.166;rotationz,0;addx,230;diffusealpha,1;linear,0.05;rotationz,10;addx,64;linear,0.066;rotationz,0);
@@ -46,7 +50,8 @@ for player in ivalues(GAMESTATE:GetHumanPlayers()) do
 			self:x(player == PLAYER_1 and SCREEN_LEFT+108 or SCREEN_RIGHT-84)
 				:y(_screen.cy+165)
 				:draworder(1)
-		end
+		end;
+		OffCommand=cmd(visible,false);
 	}
 end
 
