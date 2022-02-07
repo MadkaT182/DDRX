@@ -10,10 +10,22 @@ local Prefs =
 		Choices = { "Original", "Group", "Title", "BPM", "Popularity", "TopGrades", "Artist", "Genre" },
 		Values = { 0, 1, 2, 3, 4, 5, 6, 7 }
 	},
-	DancerType =
+	CboUnder =
 	{
-		Default = 0,
-		Choices = { "Fallback", "Old with stage", "New with stage" },
+		Default = true,
+		Choices = { OptionNameString('Off'), OptionNameString('On') },
+		Values = { false, true }
+	},
+	BossLevel =
+	{
+		Default = 13,
+		Choices = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "9999" },
+		Values = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 9999 }
+	},
+	StormBG =
+	{
+		Default = 2,
+		Choices = { "Never", "Always", "CS Mode" },
 		Values = { 0, 1, 2 }
 	},
 }

@@ -79,3 +79,31 @@ function GetSortName()
 	local name = sortList[ThemePrefs.Get("DefSort")] or "Preferred";
 	return name;
 end
+
+--Mute announcer in certain conditions
+function MuteAnnouncer()
+	setenv("tmpAnnouncer",ANNOUNCER:GetCurrentAnnouncer());
+	ANNOUNCER:SetCurrentAnnouncer("");
+end
+
+--Restore announcer
+function RestoreAnnouncer()
+	if getenv("tmpAnnouncer") then
+		ANNOUNCER:SetCurrentAnnouncer(getenv("tmpAnnouncer"));
+	end
+end
+
+--Check if the song has a dedicated video
+function HasDedicatedVideo()
+	local song = GAMESTATE:GetCurrentSong();
+	if song:HasBGChanges() then
+		local bgs = song:GetBGChanges();
+		if #bgs == 1 then
+			return true;
+		else
+			return false;
+		end
+	else
+		return false;
+	end
+end

@@ -1,4 +1,7 @@
 local t = Def.ActorFrame{};
+
+if HasDedicatedVideo() then	return t end
+
 local playernum = GAMESTATE:GetNumSidesJoined();
 local maxp1;
 local p1half;
