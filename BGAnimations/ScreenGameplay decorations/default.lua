@@ -2,8 +2,6 @@ local t = Def.ActorFrame {};
 
 t[#t+1] = LoadActor("announcer")..{};
 
-t[#t+1] = LoadActor("CutIns")..{};
-
 t[#t+1] = LoadActor("../_stageFrame")..{
 	OnCommand=cmd(y,SCREEN_TOP+24);
 };
