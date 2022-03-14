@@ -17,10 +17,10 @@ local LabelMaxZoom = THEME:GetMetric("Combo", "LabelMaxZoom");
 local t = Def.ActorFrame {
 	Def.ActorFrame {
 		Name="ComboFrame";
-		LoadFont( "combo", "glow" ) .. {
-			Name="NGlow";
-			OnCommand = THEME:GetMetric("Combo", "NumberOnCommand");
-		};
+		-- LoadFont( "combo", "glow" ) .. {
+		-- 	Name="NGlow";
+		-- 	OnCommand = THEME:GetMetric("Combo", "NumberOnCommand");
+		-- };
 		LoadFont( "combo", "marv" ) .. {
 			Name="NumberW1";
 			OnCommand = THEME:GetMetric("Combo", "NumberOnCommand");
@@ -57,7 +57,7 @@ local t = Def.ActorFrame {
 	InitCommand = function(self)
 		c = self:GetChildren();
 		cf = c.ComboFrame:GetChildren();
-		cf.NGlow:visible(false);
+		-- cf.NGlow:visible(false);
 		cf.NumberW1:visible(false);
 		cf.NumberW2:visible(false);
 		cf.NumberW3:visible(false);
@@ -87,7 +87,7 @@ local t = Def.ActorFrame {
 	ComboCommand=function(self, param)
 		local iCombo = param.Misses or param.Combo;
 		if not iCombo or iCombo < ShowComboAt then
-			cf.NGlow:visible(false);
+			-- cf.NGlow:visible(false);
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(false);
@@ -99,7 +99,7 @@ local t = Def.ActorFrame {
 			return;
 		end
 
-		cf.NGlow:visible(false);
+		-- cf.NGlow:visible(false);
 		cf.LabelW1:visible(false);
 		cf.LabelW2:visible(false);
 		cf.LabelW3:visible(false);
@@ -111,13 +111,13 @@ local t = Def.ActorFrame {
 		param.LabelZoom = scale( iCombo, 0, NumberMaxZoomAt, LabelMinZoom, LabelMaxZoom );
 		param.LabelZoom = clamp( param.LabelZoom, LabelMinZoom, LabelMaxZoom );
 
-		cf.NGlow:settext( string.format("%i", iCombo) );
+		-- cf.NGlow:settext( string.format("%i", iCombo) );
 		cf.NumberW1:settext( string.format("%i", iCombo) );
 		cf.NumberW2:settext( string.format("%i", iCombo) );
 		cf.NumberW3:settext( string.format("%i", iCombo) );
 		cf.NumberNormal:settext( string.format("%i", iCombo) );
 		if LowerJudge[p]==1 then
-			cf.NGlow:visible(true);
+			-- cf.NGlow:visible(true);
 			cf.NumberW1:visible(true);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(false);
@@ -128,7 +128,7 @@ local t = Def.ActorFrame {
 			cf.LabelW3:visible(false);
 			cf.LabelNormal:visible(false);
 		elseif LowerJudge[p]==2 then
-			cf.NGlow:visible(false);
+			-- cf.NGlow:visible(false);
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(true);
 			cf.NumberW3:visible(false);
@@ -139,7 +139,7 @@ local t = Def.ActorFrame {
 			cf.LabelW3:visible(false);
 			cf.LabelNormal:visible(false);
 		elseif LowerJudge[p]==3 then
-			cf.NGlow:visible(false);
+			-- cf.NGlow:visible(false);
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(true);
@@ -150,7 +150,7 @@ local t = Def.ActorFrame {
 			cf.LabelW3:visible(true);
 			cf.LabelNormal:visible(false);
 		elseif LowerJudge[p]==4 then
-			cf.NGlow:visible(false);
+			-- cf.NGlow:visible(false);
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(false);
@@ -161,7 +161,7 @@ local t = Def.ActorFrame {
 			cf.LabelW3:visible(false);
 			cf.LabelNormal:visible(true);
 		else
-			cf.NGlow:visible(false);
+			-- cf.NGlow:visible(false);
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(false);
@@ -173,7 +173,7 @@ local t = Def.ActorFrame {
 			cf.LabelNormal:visible(false);
 		end
 		-- Pulse
-		Pulse( cf.NGlow, param );
+		-- Pulse( cf.NGlow, param );
 		Pulse( cf.NumberW1, param );
 		Pulse( cf.NumberW2, param );
 		Pulse( cf.NumberW3, param );
