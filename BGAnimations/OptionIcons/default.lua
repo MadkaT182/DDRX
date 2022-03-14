@@ -16,20 +16,20 @@ return Def.ActorFrame {
 
 	----------------------------------------------------------
 	-- Speed
-	LoadActor(p.."/non")..{
-		ShowCommand=function(self) self:x(-85) end
-	},
+	Def.Sprite{
+		ShowCommand=function(self)
+			self:x(-85);
+			if po:XMod() and po:XMod() ~= 1 then
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/non"));
+			end
+		end;
+	};
 	Def.BitmapText{
 		Font="_arial black",
 		ShowCommand=function(self)
-			self:x(-85):zoom(0.4):maxwidth(36)
-
-			if po:XMod() then
-				self:settext("x" .. po:XMod() )
-			elseif po:CMod() then
-				self:settext( "C" .. po:CMod() )
-			elseif po:MMod() then
-				self:settext( "M" .. po:MMod() )
+			self:x(-85):zoom(.4):maxwidth(36)
+			if po:XMod() and po:XMod() ~= 1 then
+				self:settext("x"..po:XMod());
 			end
 		end,
 	},
@@ -40,13 +40,11 @@ return Def.ActorFrame {
 		ShowCommand=function(self)
 			self:x(-68)
 			if po:Boost() ~= 0  then
-				self:Load(THEME:GetPathB("","OptionIcons") .."/"..p.."/boost_on (doubleres).png");
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/boost_on"));
 			elseif po:Brake() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/boost_brake (doubleres).png");
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/boost_brake"));
 			elseif po:Wave() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/boost_wave (doubleres).png");
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/boost_wave"));
 			end
 		end,
 	},
@@ -56,15 +54,12 @@ return Def.ActorFrame {
 	Def.Sprite {
 		ShowCommand=function(self)
 			self:x(-51)
-
 			if po:Hidden() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/appearance_hidden (doubleres).png")
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/appearance_hidden"))
 			elseif po:Sudden() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/appearance_sudden (doubleres).png")
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/appearance_sudden"))
 			elseif po:Stealth() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/appearance_stealth (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/appearance_stealth"))
 			end
 		end
 	},
@@ -74,18 +69,14 @@ return Def.ActorFrame {
 	Def.Sprite {
 		ShowCommand=function(self)
 			self:x(-34)
-
 			if po:Mirror() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/turn_mirror (doubleres).png")
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/turn_mirror"))
 			elseif po:Left() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/turn_left (doubleres).png")
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/turn_left"))
 			elseif po:Right() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/turn_right (doubleres).png")
-
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/turn_right"))
 			elseif po:Shuffle() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/turn_shuffle (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/turn_shuffle"))
 			end
 		end
 	},
@@ -95,9 +86,8 @@ return Def.ActorFrame {
 	Def.Sprite {
 		ShowCommand=function(self)
 			self:x(-17)
-
 			if po:Dark() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/dark_on (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/dark_on"))
 			end
 		end
 	},
@@ -107,9 +97,8 @@ return Def.ActorFrame {
 	Def.Sprite {
 		ShowCommand=function(self)
 			self:x(0)
-
 			if po:Reverse() ~= 0 then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/scroll_reverse (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/scroll_reverse"))
 			end
 		end
 	},
@@ -119,15 +108,14 @@ return Def.ActorFrame {
 	Def.Sprite {
 		ShowCommand=function(self)
 			self:x(17)
-
 			if po:NoteSkin():lower():match("flat") then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/arrow_flat (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/arrow_flat"))
 
 			elseif po:NoteSkin():lower():match("note") then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/arrow_note (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/arrow_note"))
 
 			elseif po:NoteSkin():lower():match("rainbow") then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/arrow_rainbow (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/arrow_rainbow"))
 			end
 		end
 	},
@@ -138,7 +126,7 @@ return Def.ActorFrame {
 		ShowCommand=function(self)
 			self:x(34)
 			if po:Little() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/cut_on (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/cut_on"))
 			end
 		end
 	},
@@ -149,7 +137,7 @@ return Def.ActorFrame {
 		ShowCommand=function(self)
 			self:x(51)
 			if po:NoHolds() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/freeze_arrow_off (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/freeze_arrow_off"))
 			end
 		end
 	},
@@ -160,19 +148,11 @@ return Def.ActorFrame {
 		ShowCommand=function(self)
 			self:x(68)
 			if po:NoJumps() then
-				self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/jump_off (doubleres).png")
+				self:Load(THEME:GetPathB("","OptionIcons/"..p.."/jump_off"))
 			end
 		end
 	},
 
 	----------------------------------------------------------
 	-- Risky
-	-- Def.Sprite {
-	-- 	ShowCommand=function(self)
-	-- 		self:x(85)
-	-- 		if GAMESTATE:PlayerIsUsingModifier(player, 'battery') then
-	-- 			self:Load(THEME:GetPathB("","OptionIcons").."/"..p.."/risky (doubleres).png")
-	-- 		end
-	-- 	end
-	-- }
 }
