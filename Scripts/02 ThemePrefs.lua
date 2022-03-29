@@ -28,6 +28,12 @@ local Prefs =
 		Choices = { "Never", "Always", "CS Mode" },
 		Values = { 0, 1, 2 }
 	},
+	FlashyCombo =
+	{
+		Default = true,
+		Choices = { "Off", "On" },
+		Values = { false, true }
+	},
 }
 
 ThemePrefs.InitAll(Prefs)

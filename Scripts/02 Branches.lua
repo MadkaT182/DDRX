@@ -25,7 +25,7 @@ function DDRCredits()
 	if GAMESTATE:IsEventMode() then
 		return SelectMusicOrCourse()
 	end
-	return Grade:Compare(STATSMAN:GetBestFinalGrade(), 'Grade_Tier03') <= 0 and "ScreenCredits" or "ScreenThanks"
+	return GAMESTATE:IsAnExtraStage() and "ScreenCredits" or "ScreenThanks"
 end;
 
 Branch = {
@@ -249,11 +249,12 @@ Branch = {
  	AfterSaveSummary = function()
 		if PROFILEMAN:GetNumLocalProfiles() >= 1 then
 			--Exist profile
-			return "ScreenGameOver"
+			return DDRCredits()
+			-- return "ScreenGameOver"
 		else
 			--Arcade normal
-			--return DDRCredits()
-			return GameOverOrContinue()
+			return DDRCredits()
+			-- return GameOverOrContinue()
 		end
 --		[[ Enable when Finished ]]
 -- 		return GAMESTATE:AnyPlayerHasRankingFeats() and "ScreenNameEntryTraditional" or "ScreenGameOver"

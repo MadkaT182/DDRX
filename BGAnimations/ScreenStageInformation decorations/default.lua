@@ -12,11 +12,14 @@ t[#t+1] = Def.ActorFrame {
 
 };
 
+if not GAMESTATE:IsCourseMode() then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../_cds");
+	};
+end
+
 t[#t+1] = Def.ActorFrame {
 
-	LoadActor("../_cds")..{
-		Condition=not GAMESTATE:IsCourseMode()
-	};
 	LoadActor( "../CommonScreen/sides" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-158;y,SCREEN_CENTER_Y-110;);
 	};

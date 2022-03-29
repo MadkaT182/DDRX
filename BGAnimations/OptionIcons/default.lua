@@ -27,7 +27,7 @@ return Def.ActorFrame {
 	Def.BitmapText{
 		Font="_arial black",
 		ShowCommand=function(self)
-			self:x(-85):zoom(.4):maxwidth(36)
+			self:x(-85):zoom(.74):maxwidth(20)
 			if po:XMod() and po:XMod() ~= 1 then
 				self:settext("x"..po:XMod());
 			end
